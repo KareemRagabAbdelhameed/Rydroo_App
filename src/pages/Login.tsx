@@ -33,7 +33,7 @@ const Login = () => {
         {renderLoginInputData}
         <div className="py-6">
             <div className="flex justify-between">
-            <h2 className="text-xl font-bold text-secondMainColor">Login</h2>
+            <h2 className="text-xl font-bold text-secondMainColor dark:text-white">Login</h2>
             <span className="bg-secondMainColor w-[40px] h-[40px] rounded-full p-2">
                 <button type="submit">
                 <ArrowRight className="text-white text-lg" />
@@ -41,7 +41,7 @@ const Login = () => {
                 </button>
             </span>
             </div>
-            <p className="text-secondMainColor">Don't Have Account? <Link to="/" className="font-semibold underline">Register Now</Link></p>
+            <p className="text-secondMainColor dark:text-white">Don't Have Account? <Link to="/" className="font-semibold underline">Register Now</Link></p>
         </div>
     </form>
     </div>

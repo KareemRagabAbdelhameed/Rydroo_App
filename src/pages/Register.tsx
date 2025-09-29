@@ -33,7 +33,7 @@ const Register = () => {
         {renderRegisterInputData}
         <div className="py-4">
             <div className="flex justify-between">
-            <h2 className="text-xl font-bold text-secondMainColor">Sign Up</h2>
+            <h2 className="text-xl font-bold text-secondMainColor dark:text-white">Sign Up</h2>
             <span className="bg-secondMainColor w-[40px] h-[40px] rounded-full p-2">
                 <button type="submit">
                 <ArrowRight className="text-white text-lg" />
@@ -41,7 +41,7 @@ const Register = () => {
                 </button>
             </span>
             </div>
-            <p className="text-secondMainColor">Already Have Account? <Link to="/login" className="font-semibold underline">Login</Link></p>
+            <p className="text-secondMainColor dark:text-white">Already Have Account? <Link to="/login" className="font-semibold underline">Login</Link></p>
         </div>
     </form>
     </div>

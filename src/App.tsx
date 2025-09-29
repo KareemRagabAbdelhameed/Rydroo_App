@@ -4,7 +4,7 @@ import Register from "./pages/Register"
 
 const App = () => {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden dark:bg-gray-900">
       <Routes>
         <Route path="/" element = {<Register />} />
         <Route path="/login" element = {<Login />} />
