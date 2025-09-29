@@ -28,7 +28,7 @@ const Login = () => {
     <div className="flex gap-48">
       <div>
     <CircleShape text1="Hey" text2="Join now!" />
-    <div className="px-9 sm:px-20 py-28">
+    <div className="px-9 sm:px-20 py-8">
     <form className="w-[300px] mx-auto sm:mx-0" onSubmit={handleSubmit(onSubmit)}>
         {renderLoginInputData}
         <div className="py-6">
@@ -47,7 +47,7 @@ const Login = () => {
     </div>
     </div>
     <div className="hidden sm:block w-full p-4">
-    <div className="mx-auto my-auto">
+    <div className="mx-auto my-auto overflow-y-hidden">
       <img src="https://static.vecteezy.com/system/resources/previews/025/679/489/non_2x/orange-sports-car-and-car-illustration-design-yellow-color-and-car-banner-design-and-template-and-car-logo-design-vector.jpg" alt="" />
     </div>
     </div>
