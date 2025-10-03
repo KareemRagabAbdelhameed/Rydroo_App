@@ -9,7 +9,7 @@ const CircleShape = ({text1,text2}:IProps) => {
         <div className="absolute top-[-465px] left-[-184px] w-[700px] h-[700px] bg-maincolor rounded-full"></div>
 
         {/* Text */}
-        <h1 className="w-[214px] h-[110px] absolute top-24 left-9 sm:left-20 text-white text-3xl font-bold z-10">
+        <h1 className="w-[214px] h-[110px] font-futura absolute top-24 left-9 sm:left-20 text-white text-3xl font-bold z-10">
           {text1} <br /> {text2}
         </h1>
       </div>

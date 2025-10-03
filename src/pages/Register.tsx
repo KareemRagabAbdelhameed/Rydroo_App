@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { registerSchema } from "../validation"
 import type { RegisterFormValues } from "../interfaces"
 import { Link } from "react-router-dom"
-
+import busImage from "../assets/images/busImage.png"
 const Register = () => {
     const {
         register,
@@ -26,10 +26,10 @@ const Register = () => {
     )
   return (
     <div className="flex gap-48">
-      <div>
+      <div className="font-futura">
     <CircleShape text1="Hey" text2="Join now!" />
-    <div className="px-9 sm:px-20 py-4">
-    <form className="w-[300px] mx-auto sm:mx-0" onSubmit={handleSubmit(onSubmit)}>
+    <div className="px-9 sm:px-20 py-4 mx-auto sm:mx-0">
+    <form className="w-[300px]" onSubmit={handleSubmit(onSubmit)}>
         {renderRegisterInputData}
         <div className="py-4">
             <div className="flex justify-between">
@@ -47,8 +47,8 @@ const Register = () => {
     </div>
     </div>
     <div className="hidden sm:block w-full p-4">
-    <div className="mx-auto my-auto">
-      <img src="https://static.vecteezy.com/system/resources/previews/025/679/489/non_2x/orange-sports-car-and-car-illustration-design-yellow-color-and-car-banner-design-and-template-and-car-logo-design-vector.jpg" alt="" />
+    <div className="mx-auto my-auto mt-16">
+      <img src={busImage} alt="Rydroo Bus" />
     </div>
     </div>
     </div>

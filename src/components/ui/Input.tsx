@@ -43,7 +43,7 @@ export default function Input({
           id={id}
           name={name}
           type={inputType}
-          className="bg-thirdMainColor border border-thirdMainColor text-secondMainColor text-md py-4 sm:py-2 rounded-lg focus:ring-secondMainColor focus:border-secondMainColor block w-full p-2.5 pr-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-thirdMainColor border-thirdMainColor text-secondMainColor text-md py-4 sm:py-2 rounded-full focus:ring-thirdMainColor focus:border-thirdMainColor block w-full p-2.5 pr-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           {...rest}
         />
 

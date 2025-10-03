@@ -7,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { loginSchema } from "../validation"
 import type { LoginFormValues } from "../interfaces"
 import { Link } from "react-router-dom"
+import busImage from "../assets/images/busImage.png"
 
 const Login = () => {
     const {
@@ -26,8 +27,8 @@ const Login = () => {
     )
   return (
     <div className="flex gap-48">
-      <div>
-    <CircleShape text1="Hey" text2="Join now!" />
+      <div className="font-futura">
+    <CircleShape text1="Welcome" text2="Back"/>
     <div className="px-9 sm:px-20 py-8">
     <form className="w-[300px] mx-auto sm:mx-0" onSubmit={handleSubmit(onSubmit)}>
         {renderLoginInputData}
@@ -41,14 +42,14 @@ const Login = () => {
                 </button>
             </span>
             </div>
-            <p className="text-secondMainColor dark:text-white">Don't Have Account? <Link to="/" className="font-semibold underline">Register Now</Link></p>
+            <p className="text-secondMainColor dark:text-white">Don't Have Account? <Link to="/register" className="font-semibold underline">Register Now</Link></p>
         </div>
     </form>
     </div>
     </div>
     <div className="hidden sm:block w-full p-4">
-    <div className="mx-auto my-auto overflow-y-hidden">
-      <img src="https://static.vecteezy.com/system/resources/previews/025/679/489/non_2x/orange-sports-car-and-car-illustration-design-yellow-color-and-car-banner-design-and-template-and-car-logo-design-vector.jpg" alt="" />
+    <div className="mx-auto my-auto mt-16">
+      <img src={busImage} alt="Rydroo Bus" />
     </div>
     </div>
     </div>

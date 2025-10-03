@@ -17,3 +17,11 @@ export interface RegisterFormValues {
     name: keyof RegisterFormValues;
     className?: string;
   }
+
+  export interface ITripsData {
+    title : string,
+    seatsAvailable : number,
+    time : string,
+    day : string,
+    date : string,
+  }

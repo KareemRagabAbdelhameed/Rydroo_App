@@ -1,4 +1,4 @@
-import type { IInputProps } from "../interfaces";
+import type { IInputProps, ITripsData } from "../interfaces";
 
 export const RegisterData : IInputProps[] = [
     {
@@ -46,5 +46,22 @@ export const LoginData : IInputProps[] = [
         label : "Password",
         name : "password",
         type : "password",
+    },
+]
+
+export const TripsData : ITripsData[] = [
+    {
+        title : "Ramses Trip",
+        seatsAvailable : 4,
+        time : "12:00 PM",
+        day : "Monday",
+        date : "5/10/2025"
+    },
+    {
+        title : "Almarg Trip",
+        seatsAvailable : 6,
+        time : "08:00 PM",
+        day : "Saturday",
+        date : "9/10/2025"
     },
 ]

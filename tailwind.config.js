@@ -10,10 +10,14 @@ export default {
   
   theme: {
     extend: {
+      fontFamily: {
+        futura: ['FuturaHeavyBT', 'sans-serif'],
+      },
       colors: {
         maincolor : `#ea963e`,
         secondMainColor : `#3D2003`,
         thirdMainColor : `#0000001A`,
+        forthMainColor : `#FCEFE2`,
       },
     },
   },
