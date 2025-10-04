@@ -25,3 +25,5 @@ export interface RegisterFormValues {
     day : string,
     date : string,
   }
+
+  export type TLoading = 'idle' | 'pending' | 'succeeded' | 'failed'
