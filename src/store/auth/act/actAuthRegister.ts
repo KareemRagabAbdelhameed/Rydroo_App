@@ -13,7 +13,7 @@ const actAuthRegister = createAsyncThunk(
      async (formData : IFormData,thunk)=>{
         const {rejectWithValue} = thunk;
         try {
-            const res = await api.post("/user/signup",formData);
+            const res = await api.post("user/signup",formData);
             console.log(res.data);
             return res.data;
         } catch (error) {

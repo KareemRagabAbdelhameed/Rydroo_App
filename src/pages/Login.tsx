@@ -17,7 +17,7 @@ const Login = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const { loading, error , successMessage } = useAppSelector((state: RootState) => state.auth);
+  const { loading, error } = useAppSelector((state: RootState) => state.auth);
 
   const {
     register,
@@ -32,11 +32,10 @@ const Login = () => {
     const result = await dispatch(actAuthLogin(data));
 
     if (actAuthLogin.fulfilled.match(result)) {
-      toast.success(successMessage || "Login successful!", { autoClose: 3000 });
+      toast.success(result.payload.message || "Login successful!", { autoClose: 3000 });
       setTimeout(() => navigate("/"), 3000); // navigate to home
     } else {
-      toast.error(result.payload as string, { autoClose: 3000 });
-    }
+      toast.error(result.payload as string || "Something went wrong.");     }
   };
 
   const renderLoginInputData = LoginData.map(({ id, label, name, type }) => (
@@ -68,10 +67,10 @@ const Login = () => {
                 <h2 className="text-xl font-bold text-secondMainColor dark:text-white">
                   Login
                 </h2>
-                <span className="bg-secondMainColor w-[40px] h-[40px] rounded-full p-2 flex items-center justify-center">
-                  <button type="submit" disabled={loading === "pending"}>
-                    {loading === "pending" ? (
-                      <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                <span className="bg-secondMainColor w-[40px] h-[40px] rounded-full flex items-center justify-center">
+                  <button type="submit" disabled={loading==="pending"}>
+                    {loading ==="pending" ? (
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                     ) : (
                       <ArrowRight className="text-white text-lg" />
                     )}

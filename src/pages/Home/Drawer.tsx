@@ -1,6 +1,8 @@
 import { 
-  Bell, Shield, Settings, HelpCircle, LifeBuoy, Star, X, UserPlus, LogIn
+  Bell, Shield, Settings, HelpCircle, LifeBuoy, Star, X
 } from "lucide-react";
+import { useAppSelector } from "../../store/auth/hooks";
+import type { RootState } from "../../store/store";
 
 type DrawerProps = {
   isOpen: boolean;
@@ -8,6 +10,8 @@ type DrawerProps = {
 };
 
 export default function Drawer({ isOpen, onClose }: DrawerProps) {
+  const { user } = useAppSelector((state: RootState) => state.auth);
+
   return (
     <div
       className={`fixed top-0 left-0 z-50 h-screen w-64 p-4 pb-10 text-white bg-secondMainColor transition-transform duration-300 
@@ -25,8 +29,8 @@ export default function Drawer({ isOpen, onClose }: DrawerProps) {
           alt="Profile"
           className="w-20 h-20 rounded-full border-2 bg-maincolor border-none"
         />
-        <h2 className="text-lg font-semibold">John Doe</h2>
-
+        <h2 className="text-lg font-semibold">{user?.firstName || "John"} {user?.lastName || "Doe"}</h2>
+        <p>{user?.email || "Example@Gmail.com"}</p>
         {/* Stars */}
         <div className="flex space-x-1">
           {[...Array(5)].map((_, i) => (
@@ -58,17 +62,7 @@ export default function Drawer({ isOpen, onClose }: DrawerProps) {
           <span>Support</span>
         </a>
 
-        {/* Register */}
-        <a href="/register" className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/10">
-          <UserPlus className="w-5 h-5" />
-          <span>Register</span>
-        </a>
-
-        {/* Login */}
-        <a href="/login" className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/10">
-          <LogIn className="w-5 h-5" />
-          <span>Login</span>
-        </a>
+        
       </div>
 
       {/* Driver Mode Button */}

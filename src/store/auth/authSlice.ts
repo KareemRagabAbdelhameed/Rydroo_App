@@ -38,6 +38,7 @@ const authSlice = createSlice({
         builder.addCase(actAuthRegister.fulfilled,(state,action)=>{
             state.loading = "succeeded";
             state.user = action.payload.data;
+            console.log(state.user);
             state.successMessage = action.payload.message;
         });
         builder.addCase(actAuthRegister.rejected,(state,action)=>{
@@ -70,14 +71,17 @@ const authSlice = createSlice({
         builder.addCase(actAuthLogin.fulfilled,(state,action)=>{
             state.loading = "succeeded";
             state.accessToken = action.payload.accessToken;
-            state.user = action.payload.data;
+            state.user = action.payload.data.user;
+            console.log(state.user);
             state.successMessage = action.payload.message;
+            console.log(state.successMessage)
 
             Cookies.set("user", JSON.stringify(action.payload.data), { expires: 7 });
 
         });
         builder.addCase(actAuthLogin.rejected,(state,action)=>{
             state.error = action.payload as string;
+            state.loading = "failed";
         });
     }
 });

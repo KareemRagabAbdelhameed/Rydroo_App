@@ -13,11 +13,15 @@ const actAuthLogin = createAsyncThunk(
    async (formData : TFormData,thunk)=>{
         const {rejectWithValue} = thunk;
         try {
-            const res =await api.post("/user/login",formData);
+            const res =await api.post("user/login",formData);
             console.log(res.data);
             return res.data;
         } catch (error) {
-           return rejectWithValue(isAxiosError(error));
+            if (isAxiosError(error) && error.response) {
+                console.log(error.response.data);
+                return rejectWithValue(error.response.data.error); // يرجع الرسالة من السيرفر
+              }
+              return rejectWithValue("Something went wrong");
         }
     }
 );

@@ -45,7 +45,7 @@ const VerifyOtp = () => {
 
     const result = await dispatch(actAuthVerifyOtp({ email: user.email, otp }));
     if (actAuthVerifyOtp.fulfilled.match(result)) {
-      toast.success("OTP Verified!", { autoClose: 3000 });
+      toast.success(result.payload.message ||"OTP Verified!", { autoClose: 3000 });
       setTimeout(() => navigate("/login"), 3000);
     } else {
       toast.error(result.payload as string, { autoClose: 3000 });
@@ -53,15 +53,15 @@ const VerifyOtp = () => {
   };
 
   return (
-    <div className="w-[90%] mx-auto">
-      <h1 className="text-3xl font-bold text-secondMainColor mb-2">Verification</h1>
+    <div className="w-[90%] mx-auto space-y-16">
+      <h1 className="text-3xl font-bold text-secondMainColor mb-2 mt-10">Almost there</h1>
       <p className="text-mainColor mb-4">
         Please enter the 6 digits code sent to your email{" "}
-        <span className="font-semibold">{user?.email}</span> for verification
+        <span className="font-semibold text-maincolor">{user?.email}</span> for verification
       </p>
 
       {/* OTP Inputs */}
-      <div className="flex justify-center gap-1 mb-4">
+      <div className="flex justify-center gap-4 mb-4">
   {otpValues.map((digit, index) => (
     <input
       key={index}
@@ -82,7 +82,7 @@ const VerifyOtp = () => {
       <button
         onClick={handleVerify}
         disabled={loading === "pending"}
-        className="w-full mt-4 bg-mainColor p-3 rounded-md"
+        className="w-full mt-4 bg-maincolor text-white p-6 rounded-xl"
       >
         {loading === "pending" ? "Verifying..." : "Verify"}
       </button>

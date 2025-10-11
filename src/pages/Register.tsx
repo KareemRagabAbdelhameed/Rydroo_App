@@ -31,25 +31,33 @@ const Register = () => {
     mode: "onBlur",
   });
 
-  const onSubmit: SubmitHandler<RegisterFormValues> = (data) => {
-    const { firstName, lastName, email, password } = data;
-    dispatch(actAuthRegister({ firstName, lastName, email, password }));
+  const onSubmit: SubmitHandler<RegisterFormValues> = async(data) => {
+    const result = await dispatch(actAuthRegister(data));
+    if (actAuthRegister.fulfilled.match(result)) {
+      // عرض رسالة النجاح والتحويل إلى صفحة التحقق
+      toast.success(result.payload.message || "Registration successful! Please verify your email.", {
+        onClose: () => navigate("/verify"),
+      });
+    } else {
+      // عرض رسالة الخطأ
+      toast.error(result.payload as string || "Something went wrong during registration.");
+    }
   };
 
-  // ✅ Toasts
-  useEffect(() => {
-    if (user) {
-      toast.success(successMessage , {
-        onClose: () => navigate("/verify"), // يروح لل login بعد 3 ثواني
-      });
-    }
-  }, [user, navigate]);
+  // // ✅ Toasts
+  // useEffect(() => {
+  //   if (user) {
+  //     toast.success(successMessage , {
+  //       onClose: () => navigate("/verify"), 
+  //     });
+  //   }
+  // }, [user]);
 
-  useEffect(() => {
-    if (error) {
-      toast.error(typeof error === "string" ? error : "Something went wrong");
-    }
-  }, [error]);
+  // useEffect(() => {
+  //   if (error) {
+  //     toast.error(typeof error === "string" ? error : "Something went wrong");
+  //   }
+  // }, [error]);
 
   const renderRegisterInputData = RegisterData.map(
     ({ id, label, name, type }) => (
