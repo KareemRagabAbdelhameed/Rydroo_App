@@ -4,6 +4,7 @@ import actAuthRegister from "./act/actAuthRegister";
 import actAuthVerifyOtp from "./act/actAuthVerifyOtp";
 import actAuthLogin from "./act/actAuthLogin";
 import Cookies from "js-cookie";
+import actAuthLogout from "./act/actAuthLogout";
 interface IAuthState {
     user : {
         id : number,
@@ -76,13 +77,32 @@ const authSlice = createSlice({
             state.successMessage = action.payload.message;
             console.log(state.successMessage)
 
-            Cookies.set("user", JSON.stringify(action.payload.data), { expires: 7 });
+            Cookies.set("user", JSON.stringify(action.payload.data.user), { expires: 7 });
 
         });
         builder.addCase(actAuthLogin.rejected,(state,action)=>{
             state.error = action.payload as string;
             state.loading = "failed";
         });
+
+        // Logout reducers
+    builder.addCase(actAuthLogout.pending, (state) => {
+        state.loading = "pending";
+        state.error = null;
+      });
+      builder.addCase(actAuthLogout.fulfilled, (state) => {
+        state.loading = "succeeded";
+        state.user = null;
+        state.accessToken = null;
+        state.error = null;
+        // Clean up the cookies on the client side
+        Cookies.remove("user");
+        Cookies.remove("accessToken");
+      });
+      builder.addCase(actAuthLogout.rejected, (state, action) => {
+        state.loading = "failed";
+        state.error = action.payload as string;
+      });
     }
 });
 export default authSlice.reducer

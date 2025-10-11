@@ -1,8 +1,12 @@
 import { 
-  Bell, Shield, Settings, HelpCircle, LifeBuoy, Star, X
+  Bell, Shield, Settings, HelpCircle, LifeBuoy, Star, X,
+  LogOut
 } from "lucide-react";
-import { useAppSelector } from "../../store/auth/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/auth/hooks";
 import type { RootState } from "../../store/store";
+import { useNavigate } from "react-router-dom";
+import actAuthLogout from "../../store/auth/act/actAuthLogout";
+import { toast } from "react-toastify";
 
 type DrawerProps = {
   isOpen: boolean;
@@ -10,11 +14,24 @@ type DrawerProps = {
 };
 
 export default function Drawer({ isOpen, onClose }: DrawerProps) {
+  const dispatch = useAppDispatch();
+    const navigate = useNavigate();
   const { user } = useAppSelector((state: RootState) => state.auth);
+
+  const handleLogout = async () => {
+    const result = await dispatch(actAuthLogout());
+    
+    if (actAuthLogout.fulfilled.match(result)) {
+        toast.success(result.payload.message||"Logged out successfully!");
+        navigate("/login");
+    } else {
+        toast.error(result.payload as string || "Failed to log out.");
+    }
+};
 
   return (
     <div
-      className={`fixed top-0 left-0 z-50 h-screen w-64 p-4 pb-10 text-white bg-secondMainColor transition-transform duration-300 
+      className={`fixed top-0 left-0 z-50 min-h-screen w-64 p-4 pb-10 text-white bg-secondMainColor transition-transform duration-300 
       ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
     >
       {/* Close Button */}
@@ -23,7 +40,7 @@ export default function Drawer({ isOpen, onClose }: DrawerProps) {
       </button>
 
       {/* Profile Section */}
-      <div className="flex flex-col items-center space-y-2 mt-8">
+      <div className="flex flex-col items-center space-y-2 mt-2">
         <img
           src="https://static.vecteezy.com/system/resources/thumbnails/005/544/718/small_2x/profile-icon-design-free-vector.jpg"
           alt="Profile"
@@ -40,7 +57,7 @@ export default function Drawer({ isOpen, onClose }: DrawerProps) {
       </div>
 
       {/* Items */}
-      <div className="mt-6 space-y-2">
+      <div className="mt-4 space-y-2">
         <a href="#" className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/10">
           <Bell className="w-5 h-5" />
           <span>Notifications</span>
@@ -61,19 +78,23 @@ export default function Drawer({ isOpen, onClose }: DrawerProps) {
           <LifeBuoy className="w-5 h-5" />
           <span>Support</span>
         </a>
+        <button onClick={handleLogout} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/10">
+          <LogOut className="w-5 h-5" />
+          <span>Logout</span>
+        </button>
 
         
       </div>
 
       {/* Driver Mode Button */}
-      <div className="mt-6">
+      <div className="mt-4">
         <button className="w-full bg-maincolor text-secondMainColor font-semibold py-2 rounded-lg hover:bg-gray-100">
           Driver Mode
         </button>
       </div>
 
       {/* Social Icons */}
-      <div className="flex justify-center space-x-6 mt-6">
+      <div className="flex justify-center space-x-6 mt-4 mb-10">
         {/* Facebook */}
         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
           <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12" viewBox="0 0 48 48">

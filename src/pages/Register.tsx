@@ -8,7 +8,6 @@ import { registerSchema } from "../validation";
 import type { RegisterFormValues } from "../interfaces";
 import { Link, useNavigate } from "react-router-dom";
 import busImage from "../assets/images/busImage.png";
-import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../store/auth/hooks";
 import actAuthRegister from "../store/auth/act/actAuthRegister";
 import type { RootState } from "../store/store";
@@ -18,7 +17,7 @@ const Register = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const { loading, error, user , successMessage  } = useAppSelector(
+  const { loading  } = useAppSelector(
     (state: RootState) => state.auth
   );
 
