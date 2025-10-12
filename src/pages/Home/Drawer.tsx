@@ -1,12 +1,10 @@
 import { 
-  Bell, Shield, Settings, HelpCircle, LifeBuoy, Star, X,
-  LogOut
+  Bell, Shield, Settings, HelpCircle, LifeBuoy, Star, X
+  
 } from "lucide-react";
-import { useAppDispatch, useAppSelector } from "../../store/auth/hooks";
+import { useAppSelector } from "../../store/auth/hooks";
 import type { RootState } from "../../store/store";
-import { useNavigate } from "react-router-dom";
-import actAuthLogout from "../../store/auth/act/actAuthLogout";
-import { toast } from "react-toastify";
+
 
 type DrawerProps = {
   isOpen: boolean;
@@ -14,20 +12,10 @@ type DrawerProps = {
 };
 
 export default function Drawer({ isOpen, onClose }: DrawerProps) {
-  const dispatch = useAppDispatch();
-    const navigate = useNavigate();
+  
   const { user } = useAppSelector((state: RootState) => state.auth);
 
-  const handleLogout = async () => {
-    const result = await dispatch(actAuthLogout());
-    
-    if (actAuthLogout.fulfilled.match(result)) {
-        toast.success(result.payload.message||"Logged out successfully!");
-        navigate("/login");
-    } else {
-        toast.error(result.payload as string || "Failed to log out.");
-    }
-};
+  
 
   return (
     <div
@@ -77,13 +65,7 @@ export default function Drawer({ isOpen, onClose }: DrawerProps) {
         <a href="#" className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/10">
           <LifeBuoy className="w-5 h-5" />
           <span>Support</span>
-        </a>
-        <button onClick={handleLogout} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/10">
-          <LogOut className="w-5 h-5" />
-          <span>Logout</span>
-        </button>
-
-        
+        </a> 
       </div>
 
       {/* Driver Mode Button */}

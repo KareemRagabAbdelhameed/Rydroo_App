@@ -7,11 +7,11 @@ const Trips = () => {
     <span className="bg-forthMainColor w-[74px] h-[74px] rounded-full flex items-center justify-center">
 <CarTaxiFront className="text-maincolor w-[28px] h-[28px]" />
 </span>
-      <div className="text-secondMainColor">
+      <div className="text-secondMainColor dark:text-white">
           <h1 className="text-xl font-semibold">{title}</h1>
           <p>There are {seatsAvailable} Seats Available</p>
       </div>
-      <div className="text-secondMainColor">
+      <div className="text-secondMainColor dark:text-white">
           <p className="text-xl font-semibold">{time}</p>
           <p className="">{day}</p>
           <p className="">{date}</p>
