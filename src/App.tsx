@@ -1,37 +1,19 @@
-import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import HomePage from "./pages/Home";
 import { ToastContainer } from "react-toastify";
 import VerifyOtp from "./pages/VerifyOtp";
 import ProtectedRoute from "./validation/ProtectedRoute";
-import { useAppSelector } from "./store/auth/hooks";
-import type { RootState } from "./store/store";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import SplashScreen from "./pages/Home/SplachScreen";
 import BookRide from "./pages/BookRide";
+import Confirmation from "./pages/Confirmation";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(true);
-  const navigate = useNavigate();
-  const location = useLocation(); // Use this to get the current location
-  const { user } = useAppSelector((state: RootState) => state.auth);
 
-  useEffect(() => {
-    if (!showSplash) {
-      // List of routes that don't require login
-      const publicRoutes = ["/login", "/register", "/verify"];
-      
-      // If the user is logged in and they are on a public route, redirect them to home
-      if (user && publicRoutes.includes(location.pathname)) {
-        navigate("/");
-      } 
-      // If the user is not logged in and they are on a protected route, redirect to login
-      else if (!user && !publicRoutes.includes(location.pathname)) {
-        navigate("/login");
-      }
-    }
-  }, [showSplash, user, navigate, location.pathname]);
+  
 
   const handleFinishSplash = () => {
     setShowSplash(false);
@@ -46,7 +28,8 @@ const App = () => {
       <Routes>
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/book-ride" element={<BookRide />} />
+          <Route path="/trips/:id" element={<BookRide />} />
+          <Route path="/trips/:id/done" element={<Confirmation />} />
         </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/verify" element={<VerifyOtp />} />

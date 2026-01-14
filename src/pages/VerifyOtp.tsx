@@ -11,7 +11,6 @@ const VerifyOtp = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { user, loading, error } = useAppSelector((state: RootState) => state.auth);
-
   const handleChange = (value: string, index: number) => {
     if (!/^[0-9]?$/.test(value)) return; // يقبل رقم واحد فقط
 

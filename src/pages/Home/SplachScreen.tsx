@@ -31,7 +31,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
   }, [api, onFinish]);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-maincolor dark:bg-gray-900">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-maincolor dark:bg-gray-900">
       <animated.img 
         src={logoImage} 
         alt="Splash Screen Image" 

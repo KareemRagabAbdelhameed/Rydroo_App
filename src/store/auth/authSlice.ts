@@ -17,6 +17,7 @@ interface IAuthState {
 
     loading : TLoading,
     error : string | null,
+    isVerified : boolean,
 }
 const initialState : IAuthState = {
     user: Cookies.get("user") ? JSON.parse(Cookies.get("user")!) : null,
@@ -24,6 +25,7 @@ const initialState : IAuthState = {
     accessToken: Cookies.get("accessToken") || null,
     loading : "idle",
     error : null,
+    isVerified : false
 }
 const authSlice = createSlice({
     name : "auth",
@@ -55,7 +57,8 @@ const authSlice = createSlice({
           
           builder.addCase(actAuthVerifyOtp.fulfilled, (state, action) => {
             state.loading = "succeeded";
-            state.accessToken = action.payload.accessToken || null;
+           state.isVerified = true,
+           state.user = null,
             state.successMessage = action.payload.message;
           });
           

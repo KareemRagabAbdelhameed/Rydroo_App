@@ -1,7 +1,15 @@
 import React from 'react';
 import user from "../../assets/images/user2 1.png"
 import { Check } from 'lucide-react';
-const Destination: React.FC = () => {
+
+interface DestinationProps {
+  passengers: number;
+  setPassengers: (value: number) => void;
+}
+
+
+const Destination: React.FC<DestinationProps> = ({passengers,setPassengers}) => {
+  
   return (
    <div className='space-y-4 mt-8'>
     <h2 className='dark:text-white px-4'>Destination</h2>
@@ -23,6 +31,23 @@ const Destination: React.FC = () => {
             <h1 className="text-xl font-bold text-secondMainColor dark:text-white leading-snug">
               How Many Passengers?
             </h1>
+
+             {/* Input Field */}
+             <input
+                type="number"
+                min={1}
+                max={10}
+                value={passengers}
+                onChange={(e) => setPassengers(Number(e.target.value))}
+                className="
+                  mt-2 w-32 px-3 py-1 rounded-lg
+                  bg-white dark:bg-gray-700
+                  text-secondMainColor dark:text-white
+                  border border-gray-300 dark:border-gray-600
+                  focus:outline-none focus:ring-2 focus:ring-maincolor
+                "
+                placeholder="Passengers"
+              />
             
         </div>
         
