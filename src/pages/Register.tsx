@@ -34,9 +34,8 @@ const Register = () => {
     const result = await dispatch(actAuthRegister(data));
     if (actAuthRegister.fulfilled.match(result)) {
       // عرض رسالة النجاح والتحويل إلى صفحة التحقق
-      toast.success(result.payload.message || "Registration successful! Please verify your email.", {
-        onClose: () => navigate("/verify"),
-      });
+      toast.success(result.payload.message || "Registration successful! Please verify your email.", {autoClose : 3000});
+      setTimeout(() => navigate("/verify"), 3000); // navigate to verify page
     } else {
       // عرض رسالة الخطأ
       toast.error(result.payload as string || "Something went wrong during registration.");
