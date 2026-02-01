@@ -10,7 +10,8 @@ interface IAuthState {
         id : number,
         firstName : string,
         lastName : string,
-        email : string
+        email : string,
+        role : "user" | "driver",
     } | null,
     successMessage : string | null,
     accessToken : string | null,

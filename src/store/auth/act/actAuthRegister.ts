@@ -6,6 +6,7 @@ interface IFormData  {
     lastName : string,
     email : string,
     password : string,
+    role : "user" | "driver"
 }
 const actAuthRegister = createAsyncThunk(
     // prifix for it

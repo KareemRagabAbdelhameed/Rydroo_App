@@ -13,7 +13,12 @@ export const registerSchema = yup.object({
     .matches(/[@$!%*?&]/, "*Password must contain at least one special character (@, $, !, %, *, ?, &)"),
     confirmPassword: yup.string()
     .required("*Confirm Password is Required")
-    .oneOf([yup.ref("password")], "*Passwords not match"),}).required();
+    .oneOf([yup.ref("password")], "*Passwords not match"),
+    role: yup
+    .mixed<"user" | "driver">()
+    .oneOf(["user", "driver"], "*Role is required")
+    .required("*Role is required"),
+}).required();
 
     export const loginSchema = yup.object({
         email : yup.string().required("*Email is Required").matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/,"Email not valid"),

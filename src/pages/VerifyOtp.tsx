@@ -44,8 +44,17 @@ const VerifyOtp = () => {
 
     const result = await dispatch(actAuthVerifyOtp({ email: user.email, otp }));
     if (actAuthVerifyOtp.fulfilled.match(result)) {
-      toast.success(result.payload.message ||"OTP Verified!", { autoClose: 3000 });
-      setTimeout(() => navigate("/login"), 3000);
+      toast.success(result.payload.message || "OTP Verified!", {
+        autoClose: 3000,
+      });
+    
+      setTimeout(() => {
+        if (user?.role === "driver") {
+          navigate("/complete-driver-profile");
+        } else {
+          navigate("/login");
+        }
+      }, 3000);
     } else {
       toast.error(result.payload as string, { autoClose: 3000 });
     }

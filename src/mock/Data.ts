@@ -33,6 +33,20 @@ export const RegisterData : IInputProps[] = [
     },
 ]
 
+export const RoleData = [
+    {
+      id: "role-user",
+      label: "User",
+      value: "user",
+    },
+    {
+      id: "role-driver",
+      label: "Driver",
+      value: "driver",
+    },
+  ] as const;
+  
+
 
 export const LoginData : IInputProps[] = [
     {

@@ -4,6 +4,7 @@ export interface RegisterFormValues {
     email: string;
     password: string;
     confirmPassword: string;
+    role : "user" | "driver";
   }
   export interface LoginFormValues {
     email : string,

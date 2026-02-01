@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import CircleShape from "../components/ui/CircleShape";
 import Input from "../components/ui/Input";
-import { RegisterData } from "../mock/Data";
+import { RegisterData, RoleData } from "../mock/Data";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "../validation";
@@ -42,21 +42,6 @@ const Register = () => {
     }
   };
 
-  // // ✅ Toasts
-  // useEffect(() => {
-  //   if (user) {
-  //     toast.success(successMessage , {
-  //       onClose: () => navigate("/verify"), 
-  //     });
-  //   }
-  // }, [user]);
-
-  // useEffect(() => {
-  //   if (error) {
-  //     toast.error(typeof error === "string" ? error : "Something went wrong");
-  //   }
-  // }, [error]);
-
   const renderRegisterInputData = RegisterData.map(
     ({ id, label, name, type }) => (
       <div key={id}>
@@ -71,6 +56,29 @@ const Register = () => {
     )
   );
 
+  const renderRoleRadios = RoleData.map(({ id, label, value }) => (
+    <div>
+      <label
+      key={id}
+      htmlFor={id}
+      className="flex items-center gap-2 cursor-pointer"
+    >
+      <input
+        id={id}
+        type="radio"
+        value={value}
+        {...register("role")}
+        className="accent-secondMainColor"
+      />
+      <span className="text-secondMainColor dark:text-white">
+        {label}
+      </span>
+    </label>
+    <p className="text-red-500 mt-1">{errors.role?.message}</p>
+    </div>
+    
+  ))
+
   return (
     <div className="flex gap-48">
       <div className="font-futura">
@@ -78,6 +86,9 @@ const Register = () => {
         <div className="px-9 sm:px-20 py-4 mx-auto sm:mx-0">
           <form className="w-[300px]" onSubmit={handleSubmit(onSubmit)}>
             {renderRegisterInputData}
+            <div className="flex gap-6">
+              {renderRoleRadios}
+            </div>
             <div className="py-4">
               <div className="flex justify-between items-center">
                 <h2 className="text-xl font-bold text-secondMainColor dark:text-white">

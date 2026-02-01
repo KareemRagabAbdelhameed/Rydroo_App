@@ -9,6 +9,7 @@ import {  useState } from "react";
 import SplashScreen from "./pages/Home/SplachScreen";
 import BookRide from "./pages/BookRide";
 import Confirmation from "./pages/Confirmation";
+import CompletDriverProfile from "./pages/CompletDriverProfile";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(true);
@@ -33,6 +34,7 @@ const App = () => {
         </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/verify" element={<VerifyOtp />} />
+        <Route path="/complete-driver-profile" element={<CompletDriverProfile />} />
         <Route path="/login" element={<Login />} />
       </Routes>
       <ToastContainer position="top-center" autoClose={3000} />
