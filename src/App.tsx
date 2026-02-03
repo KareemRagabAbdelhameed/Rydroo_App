@@ -10,10 +10,11 @@ import SplashScreen from "./pages/Home/SplachScreen";
 import BookRide from "./pages/BookRide";
 import Confirmation from "./pages/Confirmation";
 import CompletDriverProfile from "./pages/CompletDriverProfile";
+import { useTranslation } from "react-i18next";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(true);
-
+  const {i18n} = useTranslation();
   
 
   const handleFinishSplash = () => {
@@ -25,10 +26,10 @@ const App = () => {
   }
 
   return (
-    <div className="overflow-x-hidden dark:bg-gray-900 min-h-screen">
+    <div dir={i18n.language==="ar" ? "rtl" : "ltr"} className="overflow-x-hidden dark:bg-gray-900 min-h-screen">
       <Routes>
+      <Route path="/" element={<HomePage />} />
         <Route element={<ProtectedRoute />}>
-          <Route path="/" element={<HomePage />} />
           <Route path="/trips/:id" element={<BookRide />} />
           <Route path="/trips/:id/done" element={<Confirmation />} />
         </Route>

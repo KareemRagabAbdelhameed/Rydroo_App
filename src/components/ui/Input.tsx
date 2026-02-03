@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export interface RegisterFormValues {
   firstName: string;
@@ -29,7 +30,8 @@ export default function Input({
 
   const isPasswordField = type === "password";
   const inputType = isPasswordField && showPassword ? "text" : type;
-
+  const { i18n } = useTranslation();
+const isRTL = i18n.dir() === "rtl";
   return (
     <div className="py-2 relative">
       <label
@@ -52,7 +54,7 @@ export default function Input({
           <button
             type="button"
             onClick={() => setShowPassword((prev) => !prev)}
-            className="absolute inset-y-0 right-2 flex items-center text-secondMainColor dark:text-white"
+            className= {`absolute inset-y-0 ${isRTL ? "left-2" : "right-2"} flex items-center text-secondMainColor dark:text-white`}
           >
             {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
           </button>

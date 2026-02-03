@@ -12,6 +12,7 @@ export default {
     extend: {
       fontFamily: {
         futura: ['FuturaHeavyBT', 'sans-serif'],
+        ge: ['"GE SS"', "sans-serif"],
       },
       colors: {
         maincolor : `#ea963e`,

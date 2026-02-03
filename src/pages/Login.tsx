@@ -12,8 +12,10 @@ import { useAppDispatch, useAppSelector } from "../store/auth/hooks";
 import actAuthLogin from "../store/auth/act/actAuthLogin";
 import { toast } from "react-toastify";
 import type { RootState } from "../store/store";
+import { useTranslation } from "react-i18next";
 
 const Login = () => {
+  const {t} = useTranslation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -42,12 +44,12 @@ const Login = () => {
     <div key={id}>
       <Input
         id={id}
-        label={label}
+        label={t(label)}
         {...register(name as keyof LoginFormValues)}
         type={type}
       />
       <p className="text-red-500">
-        {errors[name as keyof LoginFormValues]?.message}
+        {errors[name as keyof LoginFormValues]?.message && t(errors[name as keyof LoginFormValues]!.message!)}
       </p>
     </div>
   ));
@@ -55,7 +57,7 @@ const Login = () => {
   return (
     <div className="flex gap-48">
       <div className="font-futura">
-        <CircleShape text1="Welcome" text2="Back" />
+        <CircleShape text1={t("loginTitle.welcome")} text2={t("loginTitle.back")} />
         <div className="px-9 sm:px-20 py-8">
           <form
             className="w-[300px] mx-auto sm:mx-0"
@@ -65,7 +67,7 @@ const Login = () => {
             <div className="py-6">
               <div className="flex justify-between items-center">
                 <h2 className="text-xl font-bold text-secondMainColor dark:text-white">
-                  Login
+                  {t("loginTitle.login")}
                 </h2>
                 <span className="bg-secondMainColor w-[40px] h-[40px] rounded-full flex items-center justify-center">
                   <button type="submit" disabled={loading==="pending"}>
@@ -78,12 +80,12 @@ const Login = () => {
                 </span>
               </div>
 
-              {error && <p className="text-red-500 mt-2">{error}</p>}
+              {error && <p className="text-red-500 mt-2">{t(error)}</p>}
 
               <p className="text-secondMainColor dark:text-white mt-2">
-                Don't Have Account?{" "}
+                {t("loginTitle.noAccount")}{" "}
                 <Link to="/register" className="font-semibold underline">
-                  Register Now
+                  {t("loginTitle.registerNow")}
                 </Link>
               </p>
             </div>

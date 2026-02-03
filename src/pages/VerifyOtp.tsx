@@ -4,8 +4,10 @@ import actAuthVerifyOtp from "../store/auth/act/actAuthVerifyOtp";
 import type { RootState } from "../store/store";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const VerifyOtp = () => {
+  const {t} = useTranslation();
   const [otpValues, setOtpValues] = useState(Array(6).fill(""));
   const inputsRef = useRef<HTMLInputElement[]>([]);
   const dispatch = useAppDispatch();
@@ -62,10 +64,11 @@ const VerifyOtp = () => {
 
   return (
     <div className="w-[90%] mx-auto space-y-16">
-      <h1 className="text-3xl font-bold text-secondMainColor mb-2 mt-10">Almost there</h1>
+      <h1 className="text-3xl font-bold text-secondMainColor mb-2 mt-10">{t("verifyTitle.heading")}</h1>
       <p className="text-mainColor mb-4">
-        Please enter the 6 digits code sent to your email{" "}
-        <span className="font-semibold text-maincolor">{user?.email}</span> for verification
+        {t("verifyDescription.text")}{" "}
+        <span className="font-semibold text-maincolor">{user?.email}</span>
+        {t("verifyDescription.forVerification")}
       </p>
 
       {/* OTP Inputs */}
@@ -92,7 +95,7 @@ const VerifyOtp = () => {
         disabled={loading === "pending"}
         className="w-full mt-4 bg-maincolor text-white p-6 rounded-xl"
       >
-        {loading === "pending" ? "Verifying..." : "Verify"}
+        {loading === "pending" ? t("button.verifying") : t("button.verify")}
       </button>
 
       {error && <p className="text-red-500 mt-2">{error}</p>}

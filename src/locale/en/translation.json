@@ -1,0 +1,113 @@
+{
+    "home": "Home",
+    "passengers": "Passengers",
+    "drivers": "Drivers",
+    "login": "Login",
+    "register": "Create Account",
+    "language": "EN",
+
+    "title": "Travel Anywhere",
+    "badge": "With Rydroo",
+    "description": "The first Egyptian platform \n digitizing transportation hubs across Egypt",
+    "searchTrips": "Search Trips",
+    "fromPlaceholder": "Where are you traveling from?",
+    "toPlaceholder": "Where are you going?",
+    "bookNow": "Book Your Trip Now",
+
+
+    "circle": {
+    "text1": "Hey",
+    "text2": "Join now!"
+  },
+
+  "registerTitle": "Sign Up",
+
+  "inputs": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email Address",
+    "password": "Password",
+    "confirmPassword": "Confirm Password"
+  },
+
+  "roles": {
+    "user": "User",
+    "driver": "Driver"
+  },
+
+  "actions": {
+    "signUp": "Sign Up",
+    "login": "Login"
+  },
+
+  "footer": {
+    "alreadyHaveAccount": "Already have an account?",
+    "login": "Login"
+  },
+
+  "validation": {
+    "firstNameRequired": "*First name is required",
+    "lastNameRequired": "*Last name is required",
+    "emailRequired": "*Email is required",
+    "emailInvalid": "Email is not valid",
+    "passwordRequired": "*Password is required",
+    "passwordMin": "*Password must be at least 8 characters",
+    "passwordLower": "*Password must contain at least one lowercase letter",
+    "passwordUpper": "*Password must contain at least one uppercase letter",
+    "passwordNumber": "*Password must contain at least one number",
+    "passwordSpecial": "*Password must contain at least one special character (@, $, !, %, *, ?, &)",
+    "confirmPasswordRequired": "*Confirm password is required",
+    "passwordsNotMatch": "*Passwords do not match",
+    "roleRequired": "*Role is required"
+  },
+
+
+
+  "loginTitle": {
+    "welcome": "Welcome",
+    "back": "Back",
+    "login": "Login",
+    "noAccount": "Don't Have Account?",
+    "registerNow": "Register Now"
+  },
+
+  "loginInputs": {
+    "email": "Email",
+    "password": "Password"
+  },
+
+  "loginValidation": {
+    "email": {
+      "required": "Email is required",
+      "invalid": "Email is not valid"
+    },
+    "password": {
+      "required": "Password is required",
+      "min": "Password must be at least 8 characters long",
+      "lowercase": "Password must contain at least one lowercase letter",
+      "uppercase": "Password must contain at least one uppercase letter",
+      "number": "Password must contain at least one number",
+      "special": "Password must contain at least one special character (@, $, !, %, *, ?, &)"
+    }
+  },
+
+
+
+  "verifyTitle": {
+    "heading": "Almost there"
+  },
+
+  "verifyDescription": {
+    "text": "Please enter the 6 digits code sent to your email",
+    "forVerification": "for verification"
+  },
+
+  "button": {
+    "verify": "Verify",
+    "verifying": "Verifying..."
+  },
+
+  "logout" : "Sign Out"
+
+  }
+  

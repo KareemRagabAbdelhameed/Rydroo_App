@@ -12,8 +12,10 @@ import { useAppDispatch, useAppSelector } from "../store/auth/hooks";
 import actAuthRegister from "../store/auth/act/actAuthRegister";
 import type { RootState } from "../store/store";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 const Register = () => {
+  const {t} = useTranslation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -47,11 +49,11 @@ const Register = () => {
       <div key={id}>
         <Input
           id={id}
-          label={label}
+          label={t(label)}
           {...register(name as keyof RegisterFormValues)}
           type={type}
         />
-        <p className="text-red-500">{errors[name]?.message}</p>
+        <p className="text-red-500">{errors[name]?.message && t(errors[name].message)}</p>
       </div>
     )
   );
@@ -71,10 +73,10 @@ const Register = () => {
         className="accent-secondMainColor"
       />
       <span className="text-secondMainColor dark:text-white">
-        {label}
+        {t(label)}
       </span>
     </label>
-    <p className="text-red-500 mt-1">{errors.role?.message}</p>
+    <p className="text-red-500 mt-1">{errors.role?.message && t(errors.role.message)}</p>
     </div>
     
   ))
@@ -82,7 +84,7 @@ const Register = () => {
   return (
     <div className="flex gap-48">
       <div className="font-futura">
-        <CircleShape text1="Hey" text2="Join now!" />
+        <CircleShape text1={t("circle.text1")} text2={t("circle.text2")} />
         <div className="px-9 sm:px-20 py-4 mx-auto sm:mx-0">
           <form className="w-[300px]" onSubmit={handleSubmit(onSubmit)}>
             {renderRegisterInputData}
@@ -92,7 +94,7 @@ const Register = () => {
             <div className="py-4">
               <div className="flex justify-between items-center">
                 <h2 className="text-xl font-bold text-secondMainColor dark:text-white">
-                  Sign Up
+                  {t("registerTitle")}
                 </h2>
                 <span className="bg-secondMainColor w-[40px] h-[40px] rounded-full flex items-center justify-center">
                   <button type="submit" disabled={loading==="pending"}>
@@ -106,9 +108,9 @@ const Register = () => {
               </div>
 
               <p className="text-secondMainColor dark:text-white mt-3">
-                Already Have Account?{" "}
+                {t("footer.alreadyHaveAccount")}{" "}
                 <Link to="/login" className="font-semibold underline">
-                  Login
+                  {t("footer.login")}
                 </Link>
               </p>
             </div>

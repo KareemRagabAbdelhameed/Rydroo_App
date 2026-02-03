@@ -1,33 +1,32 @@
 import type { IInputProps, ITripsData } from "../interfaces";
-
 export const RegisterData : IInputProps[] = [
     {
         id : "firstName",
-        label : "First Name",
+        label : "inputs.firstName",
         name : "firstName",
         type : "text",
     },
     {
         id : "lastName",
-        label : "Last Name",
+        label : "inputs.lastName",
         name : "lastName",
         type : "text",
     },
     {
         id : "email",
-        label : "Email",
+        label : "inputs.email",
         name : "email",
         type : "email",
     },
     {
         id : "password",
-        label : "Password",
+        label : "inputs.password",
         name : "password",
         type : "password",
     },
     {
         id : "confirmPassword",
-        label : "Confirm Password",
+        label : "inputs.confirmPassword",
         name : "confirmPassword",
         type : "password",
     },
@@ -36,12 +35,12 @@ export const RegisterData : IInputProps[] = [
 export const RoleData = [
     {
       id: "role-user",
-      label: "User",
+      label: "roles.user",
       value: "user",
     },
     {
       id: "role-driver",
-      label: "Driver",
+      label: "roles.driver",
       value: "driver",
     },
   ] as const;
@@ -51,13 +50,13 @@ export const RoleData = [
 export const LoginData : IInputProps[] = [
     {
         id : "email",
-        label : "Email",
+        label : "loginInputs.email",
         name : "email",
         type : "email",
     },
     {
         id : "password",
-        label : "Password",
+        label : "loginInputs.password",
         name : "password",
         type : "password",
     },

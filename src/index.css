@@ -2,10 +2,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @font-face {
     font-family: 'FuturaHvBT';
     src: url('src/assets/fonts/FuturaHeavyBT.ttf') format('truetype');
     font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "GE SS";
+    src: url("src/assets/fonts/alfont_com_GE-SS-Two-Medium.otf") format("truetype");
+    font-weight: 500;
     font-style: normal;
   }
