@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import api from "../config/axiosConfig";
-import { useTranslation } from "react-i18next";
 export interface ITrip {
     _id : string,
     source : string,
@@ -31,7 +30,6 @@ export interface ITrip {
     }
   }
 const useTrips = ()=>{
-  const { i18n } = useTranslation();
     const fetchTrips = async()=>
         await api.get<TripsResponse>("/trips")
         .then((res)=>
@@ -40,7 +38,7 @@ const useTrips = ()=>{
 
     return useQuery<ITrip[],Error>(
             {
-              queryKey : ["trips",i18n.language],
+              queryKey : ["trips"],
               queryFn : fetchTrips
             }
           )
