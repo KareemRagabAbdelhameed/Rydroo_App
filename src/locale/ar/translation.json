@@ -1,5 +1,6 @@
 {
     "home": "الصفحة الرئيسية",
+    "trips": "الرحلات",
     "passengers": "المسافرين",
     "drivers": "الكباتن",
     "login": "سجل دخول",
@@ -13,6 +14,15 @@
       "searchTrips": "ابحث عن رحلات",
       "fromPlaceholder": "مسافر منين؟",
       "toPlaceholder": "رايح فين؟",
+    
+      "cities": {
+        "suez": "السويس",
+        "moneib": "المنيب",
+        "marg": "المرج",
+        "ramses": "رمسيس",
+        "salam": "السلام",
+        "zagazig": "الزقازيق"
+      },
       "bookNow": "احجز ميعاد دلوقتي",
     
 

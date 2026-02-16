@@ -47,7 +47,8 @@ const toggleDropDown = ()=>{
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 text-lg">
-            <a href="#" className="hover:text-maincolor">{t("home")}</a>
+            <Link to={"/"} className="hover:text-maincolor">{t("home")}</Link>
+            <Link to={"/trips"} className="hover:text-maincolor">{t("trips")}</Link>
             <a href="#" className="hover:text-maincolor">{t("passengers")}</a>
             <a href="#" className="hover:text-maincolor">{t("drivers")}</a>
           </div>

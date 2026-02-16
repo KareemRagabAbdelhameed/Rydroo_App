@@ -7,10 +7,11 @@ import VerifyOtp from "./pages/VerifyOtp";
 import ProtectedRoute from "./validation/ProtectedRoute";
 import {  useState } from "react";
 import SplashScreen from "./pages/Home/SplachScreen";
-import BookRide from "./pages/BookRide";
 import Confirmation from "./pages/Confirmation";
 import CompletDriverProfile from "./pages/CompletDriverProfile";
 import { useTranslation } from "react-i18next";
+import TripsPage from "./pages/trips";
+import TripDetails from "./pages/trips/TripDetails";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(true);
@@ -29,8 +30,10 @@ const App = () => {
     <div dir={i18n.language==="ar" ? "rtl" : "ltr"} className="overflow-x-hidden dark:bg-gray-900 min-h-screen">
       <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/trips" element={<TripsPage />} />
+      <Route path="/trips/:id" element={<TripDetails />} />
         <Route element={<ProtectedRoute />}>
-          <Route path="/trips/:id" element={<BookRide />} />
+          
           <Route path="/trips/:id/done" element={<Confirmation />} />
         </Route>
         <Route path="/register" element={<Register />} />

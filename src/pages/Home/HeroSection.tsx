@@ -1,7 +1,14 @@
 import { useTranslation } from "react-i18next";
 import heroImage from "../../assets/images/man-wearing-t-shirt-gesturing.png";
+import { useState } from "react";
 const HeroSection = () => {
   const {t} = useTranslation();
+  const [from,setFrom] = useState("");
+  const [to,setTo] = useState("");
+
+  const fromCities = ["suez"];
+
+  const toCities = ["moneib", "marg", "ramses", "salam", "zagazig"];
   return (
     <section
       className="bg-forthMainColor font-ge  px-4 md:px-16 flex flex-col-reverse md:flex-row items-center justify-between"
@@ -21,16 +28,35 @@ const HeroSection = () => {
           <button className=" px-4 rounded-md bg-black text-white py-2 mb-4 hover:opacity-90 transition">
             {t("searchTrips")}
           </button>
-          <input
-            type="text"
-            placeholder={t("fromPlaceholder")}
-            className="w-full bg-[#EDF8FC]  rounded py-2 px-3 mb-3 focus:outline-none"
-          />
-          <input
-            type="text"
-            placeholder={t("toPlaceholder")}
-            className="w-full bg-[#EDF8FC]  rounded py-2 px-3 mb-3 focus:outline-none"
-          />
+          <div className="relative w-full">
+          
+       
+          <select
+            value={from}
+            onChange={(e)=>setFrom(e.target.value)}
+            className="w-full bg-forthMainColor rounded py-2 px-3 mb-3 focus:outline-none"
+            >
+              <option value="">{t("fromPlaceholder")}</option>
+              {fromCities.map((city)=> (
+                <option key={city} value={city}>{t(`cities.${city}`)}</option>
+              ))}
+          </select>
+          </div>
+          
+          <div className="relative w-full">
+          
+          <select
+        value={to}
+        onChange={(e) => setTo(e.target.value)}
+        className="w-full bg-forthMainColor rounded py-2 px-3 mb-3 focus:outline-none"
+      >
+        <option value="">{t("toPlaceholder")}</option>
+        {toCities.map((city)=>(
+          <option key={city} value={city}>{t(`cities.${city}`)}</option>
+        ))}
+      </select>
+          </div>
+
           <button className="w-full bg-maincolor text-white py-2 rounded hover:opacity-90 transition">
             {t("bookNow")}
           </button>

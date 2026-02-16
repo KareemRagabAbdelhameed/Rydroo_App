@@ -1,5 +1,6 @@
 {
     "home": "Home",
+    "trips": "Trips",
     "passengers": "Passengers",
     "drivers": "Drivers",
     "login": "Login",
@@ -11,7 +12,16 @@
     "description": "The first Egyptian platform \n digitizing transportation hubs across Egypt",
     "searchTrips": "Search Trips",
     "fromPlaceholder": "Where are you traveling from?",
-    "toPlaceholder": "Where are you going?",
+  "toPlaceholder": "Where are you going?",
+
+  "cities": {
+    "suez": "Suez",
+    "moneib": "El Moneib",
+    "marg": "El Marg",
+    "ramses": "Ramses",
+    "salam": "El Salam",
+    "zagazig": "Zagazig"
+  },
     "bookNow": "Book Your Trip Now",
 
 
@@ -108,6 +118,9 @@
   },
 
   "logout" : "Sign Out"
+
+
+  
 
   }
   
