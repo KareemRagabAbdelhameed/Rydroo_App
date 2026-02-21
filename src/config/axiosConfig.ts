@@ -1,4 +1,5 @@
 import axios from "axios";
+import i18n from "../i18n";
 
 const api = axios.create({
   // baseURL: "http://localhost:5000/",
@@ -6,5 +7,9 @@ const api = axios.create({
   withCredentials : true,
 });
 
+api.interceptors.request.use((config) => {
+  config.headers["Accept-Language"] = i18n.language;
+  return config;
+});
 
 export default api;

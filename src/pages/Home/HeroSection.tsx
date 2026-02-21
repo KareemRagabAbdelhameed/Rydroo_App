@@ -1,14 +1,33 @@
 import { useTranslation } from "react-i18next";
 import heroImage from "../../assets/images/man-wearing-t-shirt-gesturing.png";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import i18n from "../../i18n";
 const HeroSection = () => {
   const {t} = useTranslation();
   const [from,setFrom] = useState("");
   const [to,setTo] = useState("");
+  const navigate = useNavigate();
 
   const fromCities = ["suez"];
 
   const toCities = ["moneib", "marg", "ramses", "salam", "zagazig"];
+
+  const handleSearch = () => {
+    if (!from || !to) return;
+  
+    const lang = i18n.language;
+  
+    const sourceText = t(`cities.${from}`, { lng: lang });
+    const destinationText = t(`cities.${to}`, { lng: lang });
+  
+    navigate(
+      `/trips?source=${encodeURIComponent(
+        sourceText
+      )}&destination=${encodeURIComponent(destinationText)}`
+    );
+  };
+
   return (
     <section
       className="bg-forthMainColor font-ge  px-4 md:px-16 flex flex-col-reverse md:flex-row items-center justify-between"
@@ -57,7 +76,7 @@ const HeroSection = () => {
       </select>
           </div>
 
-          <button className="w-full bg-maincolor text-white py-2 rounded hover:opacity-90 transition">
+          <button onClick={handleSearch} className="w-full bg-maincolor text-white py-2 rounded hover:opacity-90 transition">
             {t("bookNow")}
           </button>
         </div>
