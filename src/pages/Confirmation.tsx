@@ -23,10 +23,10 @@ const Confirmation = () => {
       {/* Button */}
       <Link to={"/"} className="
           w-full max-w-sm
-          bg-orange-400 text-white text-center
+          bg-maincolor text-white text-center
           py-4 rounded-full
           text-lg font-medium
-          hover:bg-orange-500
+          hover:bg-maincolor
           transition
         ">
       

@@ -3,11 +3,11 @@ import { Calendar, Clock, User, Star, Bus, ArrowLeft } from "lucide-react";
 import { Button } from "../../components/ui/Button";
 import useTripsId from "../../hooks/useTripsId";
 import Loader from "../../components/ui/Loader";
-
+import { useNavigate } from "react-router-dom";
 export default function TripDetails() {
   const { id } = useParams();
   const { data: trip, isLoading } = useTripsId(id);
-
+  const navigate = useNavigate();
 
   if (isLoading) return <Loader />
   if (!trip) return <div className="p-10 text-center">Trip not found</div>;
@@ -102,7 +102,7 @@ export default function TripDetails() {
           </div>
 
           {/* CTA */}
-          <Button className="w-full text-lg py-6">
+          <Button className="w-full text-lg py-6"  onClick={() => navigate(`/payment/${trip.data._id}`)}>
             احجز الآن
           </Button>
 

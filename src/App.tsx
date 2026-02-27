@@ -12,7 +12,10 @@ import CompletDriverProfile from "./pages/CompletDriverProfile";
 import { useTranslation } from "react-i18next";
 import TripsPage from "./pages/trips";
 import TripDetails from "./pages/trips/TripDetails";
-
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import PaymentPage from "./pages/paymentPage";
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY)
 const App = () => {
   const [showSplash, setShowSplash] = useState(true);
   const {i18n} = useTranslation();
@@ -28,19 +31,23 @@ const App = () => {
 
   return (
     <div dir={i18n.language==="ar" ? "rtl" : "ltr"} className="overflow-x-hidden dark:bg-gray-900 min-h-screen">
+      <Elements stripe={stripePromise}>
       <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/trips" element={<TripsPage />} />
       <Route path="/trips/:id" element={<TripDetails />} />
+      
         <Route element={<ProtectedRoute />}>
-          
-          <Route path="/trips/:id/done" element={<Confirmation />} />
+        <Route path="/payment/:id" element={<PaymentPage />} />
+        <Route path="/payment/:id/done" element={<Confirmation />} />
         </Route>
+
         <Route path="/register" element={<Register />} />
         <Route path="/verify" element={<VerifyOtp />} />
         <Route path="/complete-driver-profile" element={<CompletDriverProfile />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+      </Elements>
       <ToastContainer position="top-center" autoClose={3000} />
     </div>
   );
