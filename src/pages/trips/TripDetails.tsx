@@ -1,14 +1,15 @@
 import { useParams } from "react-router-dom";
-import { Calendar, Clock, User, Star, Bus, ArrowLeft } from "lucide-react";
+import { Calendar, Clock, User, Star, Bus, ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "../../components/ui/Button";
 import useTripsId from "../../hooks/useTripsId";
 import Loader from "../../components/ui/Loader";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 export default function TripDetails() {
   const { id } = useParams();
   const { data: trip, isLoading } = useTripsId(id);
   const navigate = useNavigate();
-
+  const {i18n} = useTranslation();
   if (isLoading) return <Loader />
   if (!trip) return <div className="p-10 text-center">Trip not found</div>;
 
@@ -20,7 +21,9 @@ export default function TripDetails() {
         <div className="bg-maincolor text-white p-8">
           <div className="flex items-center gap-4 text-3xl font-bold">
             <span>{trip.data.source}</span>
-            <ArrowLeft className="w-6 h-6" />
+            {i18n.language==="ar" ? <ArrowLeft className="w-6 h-6" />
+             : <ArrowRight className="w-6 h-6" />
+             }
             <span>{trip.data.destination}</span>
           </div>
           <p className="mt-2 text-white/80 text-sm">

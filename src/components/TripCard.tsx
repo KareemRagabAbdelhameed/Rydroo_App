@@ -1,11 +1,14 @@
-import { Calendar, Clock, User, Star, Bus, ArrowLeft } from 'lucide-react';
+import { Calendar, Clock, User, Star, Bus, ArrowLeft, ArrowRight } from 'lucide-react';
 import { type ITrip } from '../hooks/useTrips';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 interface TripCardProps {
   trip: ITrip;
 }
+
 export function TripCard({ trip }: TripCardProps) {
+  const {i18n} = useTranslation();
   return (
     <div className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-100 group">
       <div className="p-6">
@@ -13,7 +16,9 @@ export function TripCard({ trip }: TripCardProps) {
         <div className="flex justify-between items-start mb-6">
           <div className="flex items-center gap-3 text-xl font-bold text-black">
             <span>{trip.source}</span>
-            <ArrowLeft className="w-5 h-5 text-maincolor" />
+            {i18n.language==="ar" ? <ArrowLeft className="w-5 h-5 text-maincolor" />
+             : <ArrowRight className="w-5 h-5 text-maincolor" />
+             }
             <span>{trip.destination}</span>
           </div>
           <div className="text-right">

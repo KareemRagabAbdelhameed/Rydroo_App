@@ -110,7 +110,8 @@ const toggleDropDown = ()=>{
       {isOpen && (
         <div className="md:hidden border-t bg-white">
           <div className="flex flex-col gap-4 p-4">
-            <a href="#">{t("home")}</a>
+          <Link to={"/"} className="hover:text-maincolor">{t("home")}</Link>
+          <Link to={"/trips"} className="hover:text-maincolor">{t("trips")}</Link>
             <a href="#">{t("passengers")}</a>
             <a href="#">{t("drivers")}</a>
 
