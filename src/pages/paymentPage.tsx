@@ -16,12 +16,13 @@ export default function PaymentPage() {
   const { data: trip, isLoading } = useTripsId(id);
   const [clientSecret, setClientSecret] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const [seats, setSeats] = useState(1);
   useEffect(() => {
     const createPaymentIntent = async () => {
       try {
         const res = await api.post("/payment", {
           tripId: id,
+          seats
         });
         setClientSecret(res.data.clientSecret);
       } catch (err) {
@@ -30,7 +31,7 @@ export default function PaymentPage() {
     };
 
     createPaymentIntent();
-  }, [id]);
+  }, [id,seats]);
 
   if (isLoading || !clientSecret) return <Loader />;
 
@@ -55,6 +56,11 @@ export default function PaymentPage() {
       toast(error.message);
       setLoading(false);
     } else if (paymentIntent.status === "succeeded") {
+      await api.patch(`/trips/${id}/book`, {
+        seats,
+        paymentIntentId: paymentIntent.id
+      });
+    
       navigate(`/payment/${id}/done`);
     }
   };
@@ -67,11 +73,35 @@ export default function PaymentPage() {
           إتمام الحجز
         </h2>
 
+        <div className="flex items-center justify-between mb-4">
+  <span>عدد المقاعد</span>
+
+  <div className="flex items-center gap-3">
+    <button
+      onClick={() => seats > 1 && setSeats(seats - 1)}
+      className="px-3 py-1 bg-gray-200 rounded"
+    >
+      -
+    </button>
+
+    <span className="font-bold text-maincolor">{seats}</span>
+
+    <button
+      onClick={() =>
+        seats < trip!.data.availableSeats && setSeats(seats + 1)
+      }
+      className="px-3 py-1 bg-gray-200 rounded"
+    >
+      +
+    </button>
+  </div>
+</div>
+
         <div className="bg-gray-50 p-4 rounded-xl mb-6">
           <div className="flex justify-between">
             <span>{trip!.data.source} → {trip!.data.destination}</span>
             <span className="font-bold text-maincolor">
-              {trip!.data.price} ج.م
+              {trip!.data.price  * seats} ج.م
             </span>
           </div>
         </div>
