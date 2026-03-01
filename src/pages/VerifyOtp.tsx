@@ -72,7 +72,7 @@ const VerifyOtp = () => {
       </p>
 
       {/* OTP Inputs */}
-      <div className="flex justify-center gap-4 mb-4">
+      <div className="flex justify-center gap-4 mb-4" dir="ltr">
   {otpValues.map((digit, index) => (
     <input
       key={index}
@@ -84,6 +84,7 @@ const VerifyOtp = () => {
       ref={(el) => {
         if (el) inputsRef.current[index] = el;
       }}
+      dir="ltr"
       className="w-10 h-12 text-center text-lg rounded-md bg-thirdMainColor focus:outline-none focus:ring-2 focus:ring-mainColor"
     />
   ))}
