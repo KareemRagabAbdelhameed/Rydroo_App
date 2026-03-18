@@ -42,7 +42,7 @@ const toggleDropDown = ()=>{
           <div className="flex items-center justify-between gap-6">
             {/* Right Side - Logo */}
           <div className="flex items-center gap-2">
-            <img src={rydroLogo} alt="Logo" className="w-10 h-10 rounded-full " />
+            <Link to={"/"}><img src={rydroLogo} alt="Logo" className="w-10 h-10 rounded-full " /></Link>
           </div>
 
           {/* Desktop Menu */}
@@ -51,6 +51,7 @@ const toggleDropDown = ()=>{
             <Link to={"/trips"} className="hover:text-maincolor">{t("trips")}</Link>
             <a href="#" className="hover:text-maincolor">{t("passengers")}</a>
             <a href="#" className="hover:text-maincolor">{t("drivers")}</a>
+            {user?.role==="admin" ? <Link to={"/admin"} className="hover:text-maincolor">{t("admin")}</Link> :""}
           </div>
           </div>
 

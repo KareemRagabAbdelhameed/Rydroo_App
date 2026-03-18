@@ -3,6 +3,7 @@
     "trips": "Trips",
     "passengers": "Passengers",
     "drivers": "Drivers",
+    "admin" : "Dashboard",
     "login": "Login",
     "register": "Create Account",
     "language": "EN",

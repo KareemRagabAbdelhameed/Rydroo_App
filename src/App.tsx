@@ -15,6 +15,12 @@ import TripDetails from "./pages/trips/TripDetails";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import PaymentPage from "./pages/paymentPage";
+import AdminLayout from "./admin/layout/AdminLayout";
+import Dashboard from "./admin/pages/Dashboard";
+import Drivers from "./admin/pages/Drivers";
+import AdminTrips from "./admin/pages/Trips";
+import AddTrip from "./admin/pages/AddTrip";
+import UpdateTrip from "./admin/pages/updateTrip";
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY)
 const App = () => {
   const [showSplash, setShowSplash] = useState(true);
@@ -40,7 +46,17 @@ const App = () => {
         <Route element={<ProtectedRoute />}>
         <Route path="/payment/:id" element={<PaymentPage />} />
         <Route path="/payment/:id/done" element={<Confirmation />} />
+
+        <Route path="/admin" element={<AdminLayout />}>
+  <Route path="dashboard" element={<Dashboard />} />
+  <Route path="trips" element={<AdminTrips />} />
+  <Route path="trips/add-trip" element ={<AddTrip />} />
+  <Route path="trips/update-trip/:id" element ={<UpdateTrip />} />
+  <Route path="drivers" element={<Drivers />} />
+</Route>
         </Route>
+
+        
 
         <Route path="/register" element={<Register />} />
         <Route path="/verify" element={<VerifyOtp />} />

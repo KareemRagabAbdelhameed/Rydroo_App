@@ -40,7 +40,7 @@ export default function TripDetails() {
               <div>
                 <div className="text-sm text-gray-500">التاريخ</div>
                 <div className="font-bold">
-                  {trip.data.day}، {trip.data.date}
+                  {trip.data.day}، {trip.data.date.split("T")[0]}
                 </div>
               </div>
             </div>

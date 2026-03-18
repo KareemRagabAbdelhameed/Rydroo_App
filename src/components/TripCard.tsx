@@ -32,7 +32,7 @@ export function TripCard({ trip }: TripCardProps) {
             <Calendar className="w-5 h-5 text-maincolor" />
             <div>
               <div className="text-xs text-gray-500">التاريخ</div>
-              <div className="font-semibold">{trip.day}، {trip.date}</div>
+              <div className="font-semibold">{trip.day}، {trip.date.split("T")[0]}</div>
             </div>
           </div>
           <div className="w-px bg-gray-200"></div>

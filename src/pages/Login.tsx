@@ -32,10 +32,18 @@ const Login = () => {
 
   const onSubmit = async (data: LoginFormValues) => {
     const result = await dispatch(actAuthLogin(data));
+    
 
     if (actAuthLogin.fulfilled.match(result)) {
+      const userRole = result.payload.data.user.role;
       toast.success(result.payload.message || "Login successful!", { autoClose: 3000 });
-      setTimeout(() => navigate("/"), 3000); // navigate to home
+      setTimeout(() => {
+        if(userRole==="admin"){
+          navigate("/admin");
+        }else{
+          navigate("/");
+        }
+      }, 3000); 
     } else {
       toast.error(result.payload as string || "Something went wrong.");     }
   };
