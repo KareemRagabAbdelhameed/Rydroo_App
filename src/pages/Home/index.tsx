@@ -1,5 +1,5 @@
 import Navbar from "../../components/Navbar"
-import { Features } from "./Features"
+// import { Features } from "./Features"
 
 import HeroSection from "./HeroSection"
 import PriceSection from "./PriceSection"

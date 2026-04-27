@@ -3,6 +3,7 @@ import api from "../config/axiosConfig";
 import i18n from "../i18n";
 
 export interface ITrip {
+  bookedSeats: never[];
   _id: string;
   source: string;
   destination: string;
@@ -20,6 +21,7 @@ export interface ITrip {
     };
   };
   vehicle: {
+    totalSeats: number;
     _id: string;
     make: string;
     model: string;
