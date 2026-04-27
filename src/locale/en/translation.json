@@ -118,10 +118,17 @@
     "verifying": "Verifying..."
   },
 
-  "logout" : "Sign Out"
+  "logout" : "Sign Out",
 
-
-  
-
+  "priceSection": {
+    "title": "Your trip at the exact\nbus station price",
+    "badge": "Prices start from 65 EGP"
+  },
+  "destinations": {
+    "title": "Popular Destinations",
+    "subtitle": "Explore the most requested trips and book your seat now",
+    "viewAll": "View All",
+    "bookNow": "Book Now"
   }
+}
   
