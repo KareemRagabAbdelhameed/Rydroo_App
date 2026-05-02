@@ -129,6 +129,18 @@
     "subtitle": "Explore the most requested trips and book your seat now",
     "viewAll": "View All",
     "bookNow": "Book Now"
+  },
+  "safetySection": {
+    "badge": "Safety",
+    "title": "Your safety is our priority",
+    "cardTitle": "Safety is non-negotiable.",
+    "cardDescription": "At Rydroo, we ensure that all drivers are officially registered and their licenses and roadworthiness are verified, to provide you with a safer and more organized experience compared to traditional stations!",
+    "button": "Learn More"
+  },
+  "socialImpact": {
+    "title": "Social Impact: Towards Sustainable Influence",
+    "description": "We developed Rydroo to save your time and enhance your comfort while contributing to reducing emissions and energy conservation for a cleaner environment and a better quality of life.",
+    "button": "Learn More"
   }
 }
   

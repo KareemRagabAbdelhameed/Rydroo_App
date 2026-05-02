@@ -4,9 +4,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import i18n from "../../i18n";
 const HeroSection = () => {
-  const {t} = useTranslation();
-  const [from,setFrom] = useState("");
-  const [to,setTo] = useState("");
+  const { t } = useTranslation();
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
   const navigate = useNavigate();
 
   const fromCities = ["suez"];
@@ -15,12 +15,12 @@ const HeroSection = () => {
 
   const handleSearch = () => {
     if (!from || !to) return;
-  
+
     const lang = i18n.language;
-  
+
     const sourceText = t(`cities.${from}`, { lng: lang });
     const destinationText = t(`cities.${to}`, { lng: lang });
-  
+
     navigate(
       `/trips?source=${encodeURIComponent(
         sourceText
@@ -48,32 +48,32 @@ const HeroSection = () => {
             {t("searchTrips")}
           </button>
           <div className="relative w-full">
-          
-       
-          <select
-            value={from}
-            onChange={(e)=>setFrom(e.target.value)}
-            className="w-full bg-forthMainColor rounded py-2 px-3 mb-3 focus:outline-none"
+
+
+            <select
+              value={from}
+              onChange={(e) => setFrom(e.target.value)}
+              className="w-full bg-forthMainColor rounded py-2 px-3 mb-3 focus:outline-none"
             >
               <option value="">{t("fromPlaceholder")}</option>
-              {fromCities.map((city)=> (
+              {fromCities.map((city) => (
                 <option key={city} value={city}>{t(`cities.${city}`)}</option>
               ))}
-          </select>
+            </select>
           </div>
-          
+
           <div className="relative w-full">
-          
-          <select
-        value={to}
-        onChange={(e) => setTo(e.target.value)}
-        className="w-full bg-forthMainColor rounded py-2 px-3 mb-3 focus:outline-none"
-      >
-        <option value="">{t("toPlaceholder")}</option>
-        {toCities.map((city)=>(
-          <option key={city} value={city}>{t(`cities.${city}`)}</option>
-        ))}
-      </select>
+
+            <select
+              value={to}
+              onChange={(e) => setTo(e.target.value)}
+              className="w-full bg-forthMainColor rounded py-2 px-3 mb-3 focus:outline-none"
+            >
+              <option value="">{t("toPlaceholder")}</option>
+              {toCities.map((city) => (
+                <option key={city} value={city}>{t(`cities.${city}`)}</option>
+              ))}
+            </select>
           </div>
 
           <button onClick={handleSearch} className="w-full bg-maincolor text-white py-2 rounded hover:opacity-90 transition">
@@ -86,7 +86,7 @@ const HeroSection = () => {
         <img
           src={heroImage}
           alt="hero Image"
-          className="w-[400px] h-[500px] md:w-[470px] md:h-[644px]  object-cover rounded-lg"
+          className="w-[400px] h-auto md:w-[470px] md:h-auto  object-cover rounded-lg"
         />
       </div>
     </section>

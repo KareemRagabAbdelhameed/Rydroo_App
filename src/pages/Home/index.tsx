@@ -3,6 +3,8 @@ import Navbar from "../../components/Navbar"
 
 import HeroSection from "./HeroSection"
 import PriceSection from "./PriceSection"
+import SafetySection from "./SafetySection"
+import SocialImpactSection from "./SocialImpactSection"
 import DestinationsSection from "./DestinationsSection"
 // import { HowItWorks } from "./HowItWork"
 
@@ -12,6 +14,8 @@ const HomePage = () => {
       <Navbar/>
       <HeroSection />
       <PriceSection />
+      <SafetySection />
+      <SocialImpactSection />
       <DestinationsSection />
        {/* <Features />
        <HowItWorks /> */}

@@ -36,7 +36,7 @@ const toggleDropDown = ()=>{
 
   return (
     <nav className="w-full bg-white font-ge">
-      <div className="mx-auto max-w-7xl px-4">
+      <div className="mx-auto max-w-8xl px-4">
         <div className="flex h-16 items-center justify-between">
 
           <div className="flex items-center justify-between gap-6">
