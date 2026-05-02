@@ -246,7 +246,13 @@ export default function TripDetails() {
                 </div>
 
                 <button
-                  onClick={() => navigate(`/payment/${_id}`)}
+                  onClick={() =>
+  navigate(`/payment/${_id}`, {
+    state: {
+      selectedSeats,
+    },
+  })
+}
                   disabled={selectedSeats.length === 0}
                   className="w-full bg-[#3f2103] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-all shadow-lg shadow-[#3f2103]/20 disabled:opacity-40 disabled:cursor-not-allowed"
                 >
