@@ -5,19 +5,21 @@ import HeroSection from "./HeroSection"
 import PriceSection from "./PriceSection"
 import SafetySection from "./SafetySection"
 import SocialImpactSection from "./SocialImpactSection"
+import RadioSection from "./RadioSection"
 import DestinationsSection from "./DestinationsSection"
 // import { HowItWorks } from "./HowItWork"
 
 const HomePage = () => {
   return (
     <div className="overflow-x-hidden">
-      <Navbar/>
+      <Navbar />
       <HeroSection />
       <PriceSection />
       <SafetySection />
       <SocialImpactSection />
       <DestinationsSection />
-       {/* <Features />
+      <RadioSection />
+      {/* <Features />
        <HowItWorks /> */}
     </div>
   )

@@ -121,8 +121,10 @@
   "logout" : "Sign Out",
 
   "priceSection": {
+    "header": "The Fair Price",
     "title": "Your trip at the exact\nbus station price",
-    "badge": "Prices start from 65 EGP"
+    "badge": "Prices start from 65 EGP",
+    "description": "Enjoy smart technology and affordable prices!"
   },
   "destinations": {
     "title": "Popular Destinations",
@@ -141,6 +143,10 @@
     "title": "Social Impact: Towards Sustainable Influence",
     "description": "We developed Rydroo to save your time and enhance your comfort while contributing to reducing emissions and energy conservation for a cleaner environment and a better quality of life.",
     "button": "Learn More"
+  },
+  "radioSection": {
+    "title": "Now you can follow the latest road news instantly before you move!",
+    "description": "Through radio broadcasting technology, we bring you real-time traffic updates so you can stay safe and choose the best route before traveling."
   }
 }
   
