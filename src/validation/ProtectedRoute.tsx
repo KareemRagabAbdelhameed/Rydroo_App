@@ -1,4 +1,4 @@
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useAppSelector } from "../store/auth/hooks";
 import type { RootState } from "../store/store";
 import AuthPopup from "../components/ui/AuthPopup";
@@ -20,9 +20,9 @@ const ProtectedRoute = () => {
       />
     );
   }
-  if (user.role !== "admin") {
-    return <Navigate to="/" replace />;
-  }
+  // if (user.role !== "admin") {
+  //   return <Navigate to="/" replace />;
+  // }
 
   return <Outlet />;
 };
