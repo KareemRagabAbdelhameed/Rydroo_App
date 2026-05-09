@@ -1,12 +1,24 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import { useAppSelector } from "../store/auth/hooks";
 import type { RootState } from "../store/store";
+import AuthPopup from "../components/ui/AuthPopup";
+import { useState } from "react";
 
 const ProtectedRoute = () => {
   const { user } = useAppSelector((state: RootState) => state.auth);
-  console.log(user);
+  const navigate = useNavigate();
+  const [isPopupOpen, setIsPopupOpen] = useState(true);
+
   if (!user) {
-    return <Navigate to="/login" replace />;
+    return (
+      <AuthPopup 
+        isOpen={isPopupOpen} 
+        onClose={() => {
+          setIsPopupOpen(false);
+          navigate(-1);
+        }} 
+      />
+    );
   }
   if (user.role !== "admin") {
     return <Navigate to="/" replace />;
@@ -14,4 +26,4 @@ const ProtectedRoute = () => {
 
   return <Outlet />;
 };
-export default ProtectedRoute
+export default ProtectedRoute;

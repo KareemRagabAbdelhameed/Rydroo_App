@@ -122,7 +122,7 @@
 
   "priceSection": {
     "header": "The Fair Price",
-    "title": "Your trip at the exact\nbus station price",
+    "title": "Your trip for exactly the same price as the Station fare!",
     "badge": "Prices start from 65 EGP",
     "description": "Enjoy smart technology and affordable prices!"
   },
@@ -147,6 +147,9 @@
   "radioSection": {
     "title": "Now you can follow the latest road news instantly before you move!",
     "description": "Through radio broadcasting technology, we bring you real-time traffic updates so you can stay safe and choose the best route before traveling."
+  },
+  "authPopup": {
+    "title": "You must login first to book!"
   }
 }
   
