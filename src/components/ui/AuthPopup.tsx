@@ -34,7 +34,6 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ isOpen, onClose }) => {
           <button 
             onClick={() => {
               navigate('/register', { replace: true });
-              onClose();
             }}
             className="flex-1 bg-maincolor text-white rounded-full py-2.5 px-6 text-base md:text-lg font-bold hover:bg-opacity-90 transition-all"
           >
@@ -45,7 +44,6 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ isOpen, onClose }) => {
           <button 
             onClick={() => {
               navigate('/login', { replace: true });
-              onClose();
             }}
             className="flex-1 bg-white border border-secondMainColor text-secondMainColor rounded-full py-2.5 px-6 text-base md:text-lg font-bold hover:bg-gray-50 transition-all"
           >
