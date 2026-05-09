@@ -281,8 +281,14 @@ export default function TripDetails() {
             </span>
           </div>
           <button
-            onClick={() => navigate(`/payment/${_id}`)}
-            disabled={selectedSeats.length === 0}
+            onClick={() =>
+  navigate(`/payment/${_id}`, {
+    state: {
+      selectedSeats,
+    },
+  })
+}
+                  disabled={selectedSeats.length === 0}
             className="grow bg-[#3f2103] text-white py-3 px-6 rounded-xl font-bold flex items-center justify-center gap-2 disabled:opacity-40"
           >
             <span>احجز الآن</span>
