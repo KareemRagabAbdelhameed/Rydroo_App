@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useForm, type SubmitHandler } from "react-hook-form";
+import { useForm, type Resolver, type SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../validation";
 import type { LoginFormValues } from "../interfaces";
@@ -38,7 +38,7 @@ const Login = () => {
       : undefined;
   const defaultRole =
     locationRole ||
-    (user?.role === "driver" ? "driver" : undefined) ||
+    (user?.role === "driver" || user?.role === "user" ? user.role : undefined) ||
     getPendingAuthRole();
   const defaultEmail =
     (typeof location.state?.email === "string" && location.state.email) ||
@@ -50,7 +50,7 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormValues>({
-    resolver: yupResolver(loginSchema),
+    resolver: yupResolver(loginSchema) as Resolver<LoginFormValues>,
     mode: "onBlur",
     defaultValues: {
       role: defaultRole,

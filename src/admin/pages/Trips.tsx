@@ -51,7 +51,11 @@ const AdminTrips = () => {
             <td>{time}</td>
             <td>{price}</td>
             <td>{availableSeats}</td>
-            <td>{driverProfile.user.firstName} {driverProfile.user.lastName}</td>
+            <td>
+              {[driverProfile?.user?.firstName, driverProfile?.user?.lastName]
+                .filter(Boolean)
+                .join(" ") || "—"}
+            </td>
             <td>
               <span className="px-3 py-1 text-sm bg-green-100 text-green-600 rounded-full">
                 Active

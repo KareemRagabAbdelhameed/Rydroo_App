@@ -100,7 +100,7 @@ const Register = () => {
               </label>
             </div>
             {errors.role && (
-              <p className="text-red-500 text-sm mt-1 px-2">{t(errors.role.message)}</p>
+              <p className="text-red-500 text-sm mt-1 px-2">{t(errors.role.message || "")}</p>
             )}
           </div>
 
@@ -113,7 +113,7 @@ const Register = () => {
                 className={fieldClass}
               />
               {errors.firstName && (
-                <p className="text-red-500 text-sm mt-1 px-2">{t(errors.firstName.message)}</p>
+                <p className="text-red-500 text-sm mt-1 px-2">{t(errors.firstName.message || "")}</p>
               )}
             </div>
             <div className="flex-1">
@@ -124,7 +124,7 @@ const Register = () => {
                 className={fieldClass}
               />
               {errors.lastName && (
-                <p className="text-red-500 text-sm mt-1 px-2">{t(errors.lastName.message)}</p>
+                <p className="text-red-500 text-sm mt-1 px-2">{t(errors.lastName.message || "")}</p>
               )}
             </div>
           </div>
@@ -148,7 +148,7 @@ const Register = () => {
               />
             </div>
             {errors.phoneNumber && (
-              <p className="text-red-500 text-sm px-2">{t(errors.phoneNumber.message)}</p>
+              <p className="text-red-500 text-sm px-2">{t(errors.phoneNumber.message || "")}</p>
             )}
           </div>
 
@@ -162,7 +162,7 @@ const Register = () => {
               dir="ltr"
             />
             {errors.email && (
-              <p className="text-red-500 text-sm px-2">{t(errors.email.message)}</p>
+              <p className="text-red-500 text-sm px-2">{t(errors.email.message || "")}</p>
             )}
           </div>
 
@@ -184,7 +184,7 @@ const Register = () => {
               </button>
             </div>
             {errors.password && (
-              <p className="text-red-500 text-sm px-2">{t(errors.password.message)}</p>
+              <p className="text-red-500 text-sm px-2">{t(errors.password.message || "")}</p>
             )}
           </div>
 
@@ -206,7 +206,7 @@ const Register = () => {
               </button>
             </div>
             {errors.confirmPassword && (
-              <p className="text-red-500 text-sm px-2">{t(errors.confirmPassword.message)}</p>
+              <p className="text-red-500 text-sm px-2">{t(errors.confirmPassword.message || "")}</p>
             )}
           </div>
 
@@ -223,7 +223,7 @@ const Register = () => {
               </span>
             </label>
             {errors.acceptTerms && (
-              <p className="text-red-500 text-sm mt-[-8px]">{t(errors.acceptTerms.message)}</p>
+              <p className="text-red-500 text-sm mt-[-8px]">{t(errors.acceptTerms.message || "")}</p>
             )}
 
             <label className="flex items-center gap-3 cursor-pointer">
@@ -238,7 +238,7 @@ const Register = () => {
               </span>
             </label>
             {errors.acceptPrivacy && (
-              <p className="text-red-500 text-sm mt-[-8px]">{t(errors.acceptPrivacy.message)}</p>
+              <p className="text-red-500 text-sm mt-[-8px]">{t(errors.acceptPrivacy.message || "")}</p>
             )}
           </div>
 

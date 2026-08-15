@@ -70,7 +70,7 @@ const UpdateTrip = () => {
         time: trip.time,
         price: trip.price,
         availableSeats: trip.availableSeats,
-        driverProfile: trip.driverProfile._id,
+        driverProfile: trip.driverProfile?._id || "",
       });
     }
   }, [trip, reset]);
@@ -199,8 +199,10 @@ const UpdateTrip = () => {
           >
             <option value="">Select Driver</option>
             {/* لو عندك hook للـ available drivers، هنا ممكن تعمل map */}
-            <option value={trip?.driverProfile._id}>
-              {trip?.driverProfile.user.firstName} {trip?.driverProfile.user.lastName}
+            <option value={trip?.driverProfile?._id || ""}>
+              {[trip?.driverProfile?.user?.firstName, trip?.driverProfile?.user?.lastName]
+                .filter(Boolean)
+                .join(" ") || "Current driver"}
             </option>
           </select>
           <p className="text-red-500 text-sm">{errors.driverProfile?.message}</p>

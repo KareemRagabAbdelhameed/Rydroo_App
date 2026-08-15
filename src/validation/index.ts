@@ -28,7 +28,7 @@ export const registerSchema = yup.object({
     export const loginSchema = yup.object({
         email: yup.string().required("البريد الالكتروني أو رقم الهاتف مطلوب"),
         password: yup.string().required("كلمة المرور مطلوبة"),
-        role: yup.string().optional(),
+        role: yup.mixed<"user" | "driver">().oneOf(["user", "driver"]).optional(),
     }).required();
 
 

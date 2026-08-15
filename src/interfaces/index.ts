@@ -1,12 +1,8 @@
 import * as yup from "yup";
-import { registerSchema } from "../validation";
+import { loginSchema, registerSchema } from "../validation";
 
 export type RegisterFormValues = yup.InferType<typeof registerSchema>;
-  export interface LoginFormValues {
-    email : string,
-    password : string,
-    role?: "user" | "driver"
-  }
+export type LoginFormValues = yup.InferType<typeof loginSchema>;
   
   export interface IInputProps {
     id: string;
