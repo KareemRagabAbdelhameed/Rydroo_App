@@ -12,21 +12,21 @@ export interface ITrip {
   time: string;
   day: string;
   price: number;
-  driverProfile: {
+  driverProfile?: {
     _id: string;
-    user: {
+    user?: {
       _id: string;
       firstName: string;
       lastName: string;
-    };
-  };
-  vehicle: {
+    } | null;
+  } | null;
+  vehicle?: {
     totalSeats: number;
     _id: string;
     make: string;
     model: string;
     plateNumber: string;
-  };
+  } | null;
 }
 
 interface Filters {

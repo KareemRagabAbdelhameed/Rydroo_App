@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import heroImage from "../../assets/images/homee.png";
+import heroImage from "../../assets/images/4.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import i18n from "../../i18n";
@@ -81,8 +81,8 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <button 
-            onClick={handleSearch} 
+          <button
+            onClick={handleSearch}
             className="w-full bg-maincolor text-white py-4 rounded-xl text-xl font-bold hover:bg-opacity-90 transition-all shadow-lg active:scale-95"
           >
             {t("bookNow")}

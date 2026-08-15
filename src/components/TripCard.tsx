@@ -8,17 +8,35 @@ interface TripCardProps {
 }
 
 export function TripCard({ trip }: TripCardProps) {
-  const {i18n} = useTranslation();
+  const { i18n, t } = useTranslation();
+
+  const driverFirstName = trip.driverProfile?.user?.firstName;
+  const driverLastName = trip.driverProfile?.user?.lastName;
+  const driverName =
+    [driverFirstName, driverLastName].filter(Boolean).join(" ") ||
+    t("tripsPage.unknownDriver");
+
+  const vehicleLabel = [
+    trip.vehicle?.make,
+    trip.vehicle?.model,
+    trip.vehicle?.plateNumber,
+  ]
+    .filter(Boolean)
+    .join(" ") || t("tripsPage.unknownVehicle");
+
+  const tripDate = trip.date ? trip.date.split("T")[0] : "—";
+
   return (
     <div className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-100 group">
       <div className="p-6">
-        {/* Header: Route & Price */}
         <div className="flex justify-between items-start mb-6">
           <div className="flex items-center gap-3 text-xl font-bold text-black">
             <span>{trip.source}</span>
-            {i18n.language==="ar" ? <ArrowLeft className="w-5 h-5 text-maincolor" />
-             : <ArrowRight className="w-5 h-5 text-maincolor" />
-             }
+            {i18n.language === "ar" ? (
+              <ArrowLeft className="w-5 h-5 text-maincolor" />
+            ) : (
+              <ArrowRight className="w-5 h-5 text-maincolor" />
+            )}
             <span>{trip.destination}</span>
           </div>
           <div className="text-right">
@@ -26,13 +44,16 @@ export function TripCard({ trip }: TripCardProps) {
             <span className="text-xs text-gray-500">للفرد</span>
           </div>
         </div>
-        {/* Time & Date Info */}
+
         <div className="flex gap-4 mb-6 bg-forthMainColor p-4 rounded-xl">
           <div className="flex items-center gap-2 text-black">
             <Calendar className="w-5 h-5 text-maincolor" />
             <div>
               <div className="text-xs text-gray-500">التاريخ</div>
-              <div className="font-semibold">{trip.day}، {trip.date.split("T")[0]}</div>
+              <div className="font-semibold">
+                {trip.day ? `${trip.day}، ` : ""}
+                {tripDate}
+              </div>
             </div>
           </div>
           <div className="w-px bg-gray-200"></div>
@@ -40,20 +61,26 @@ export function TripCard({ trip }: TripCardProps) {
             <Clock className="w-5 h-5 text-maincolor" />
             <div>
               <div className="text-xs text-gray-500">الموعد</div>
-              <div className="font-semibold">{trip.time}</div>
+              <div className="font-semibold">{trip.time || "—"}</div>
             </div>
           </div>
         </div>
-        {/* Description */}
-        <p>يوجد <span className='text-maincolor font-semibold tex-lg'>{trip.availableSeats}</span> أماكن متاحة في الميكروباص</p>
-        {/* Driver & Vehicle Info */}
+
+        <p>
+          يوجد{" "}
+          <span className="text-maincolor font-semibold text-lg">
+            {trip.availableSeats ?? 0}
+          </span>{" "}
+          أماكن متاحة في الميكروباص
+        </p>
+
         <div className="flex items-center justify-between border-t border-gray-100 pt-4 mb-6">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500">
               <User className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-sm font-bold text-brand-dark">{trip.driverProfile.user.firstName} {trip.driverProfile.user.lastName}</div>
+              <div className="text-sm font-bold text-brand-dark">{driverName}</div>
               <div className="flex items-center gap-1 text-xs text-gray-500">
                 <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
               </div>
@@ -61,14 +88,14 @@ export function TripCard({ trip }: TripCardProps) {
           </div>
           <div className="flex items-center gap-2 text-sm text-gray-500 bg-gray-50 px-3 py-1.5 rounded-lg">
             <Bus className="w-4 h-4" />
-            <span>{trip.vehicle.make} {trip.vehicle.model} {trip.vehicle.plateNumber}</span>
+            <span>{vehicleLabel}</span>
           </div>
         </div>
-        {/* Action */}
-        <div className='w-full bg-maincolor text-white px-4 py-2 rounded-full text-center'>
-        <Link to={`/trips/${trip._id}`} className="w-full flex justify-center">
-          احجز مكانك
-        </Link>
+
+        <div className="w-full bg-maincolor text-white px-4 py-2 rounded-full text-center">
+          <Link to={`/trips/${trip._id}`} className="w-full flex justify-center">
+            احجز مكانك
+          </Link>
         </div>
       </div>
     </div>

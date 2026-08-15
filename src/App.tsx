@@ -9,6 +9,7 @@ import {  useState } from "react";
 import SplashScreen from "./pages/Home/SplachScreen";
 import Confirmation from "./pages/Confirmation";
 import CompletDriverProfile from "./pages/CompletDriverProfile";
+import CompletDriverVehicle from "./pages/CompletDriverVehicle";
 import { useTranslation } from "react-i18next";
 import TripsPage from "./pages/trips";
 import TripDetails from "./pages/trips/TripDetails";
@@ -61,6 +62,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/verify" element={<VerifyOtp />} />
         <Route path="/complete-driver-profile" element={<CompletDriverProfile />} />
+        <Route path="/complete-driver-vehicle" element={<CompletDriverVehicle />} />
         <Route path="/login" element={<Login />} />
       </Routes>
       </Elements>

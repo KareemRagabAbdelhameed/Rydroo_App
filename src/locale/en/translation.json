@@ -59,6 +59,8 @@
   "validation": {
     "firstNameRequired": "*First name is required",
     "lastNameRequired": "*Last name is required",
+    "phoneNumberRequired": "*Phone number is required",
+    "phoneNumberInvalid": "*Phone number must be +20 followed by 10 digits",
     "emailRequired": "*Email is required",
     "emailInvalid": "Email is not valid",
     "passwordRequired": "*Password is required",
@@ -110,7 +112,11 @@
 
   "verifyDescription": {
     "text": "Please enter the 6 digits code sent to your email",
-    "forVerification": "for verification"
+    "forVerification": "for verification",
+    "didNotReceive": "Didn't receive any code?",
+    "resend": "Resend again",
+    "resendIn": "Resend in",
+    "otpResent": "A new OTP has been sent to your email"
   },
 
   "button": {
@@ -150,6 +156,40 @@
   },
   "authPopup": {
     "title": "You must login first to book!"
+  },
+  "tripsPage": {
+    "unknownDriver": "Unknown driver",
+    "unknownVehicle": "Vehicle unavailable"
+  },
+  "driverRegister": {
+    "completeTitle": "Please complete the following details",
+    "nationalId": "National ID number",
+    "nationalIdFront": "National ID photo (front)",
+    "nationalIdBack": "National ID photo (back)",
+    "licenseFront": "Driver license (front)",
+    "licenseBack": "Driver license (back)",
+    "routeLicenseFront": "Route license (front) — optional",
+    "routeLicenseBack": "Route license (back) — optional",
+    "uploadFrontHint": "Tap to upload the front side",
+    "uploadBackHint": "Tap to upload the back side",
+    "uploadFrontOptionalHint": "Tap to upload front side if available",
+    "uploadBackOptionalHint": "Tap to upload back side if available",
+    "carType": "Vehicle type / make",
+    "carColor": "Vehicle color",
+    "carPlate": "License plate (letters + numbers)",
+    "vehicleLicenseFront": "Vehicle license (front)",
+    "vehicleLicenseBack": "Vehicle license (back)",
+    "carImage": "Vehicle photo",
+    "carImageHint": "A photo showing the full vehicle",
+    "next": "Next",
+    "back": "Back",
+    "confirmSubmit": "Confirm registration",
+    "fieldRequired": "This field is required",
+    "loginRequired": "Please log in first to complete your driver profile.",
+    "driverOnly": "This page is for drivers only.",
+    "profileDataMissing": "Profile data is missing. Please complete it first.",
+    "submitSuccess": "Driver registration submitted for review.",
+    "submitError": "Something went wrong while submitting driver details."
   }
 }
   

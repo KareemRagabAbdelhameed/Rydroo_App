@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import priceImage from "../../assets/images/fair-price-image.png";
+import priceImage from "../../assets/images/Fair price man.png";
 
 const PriceSection = () => {
   const { t } = useTranslation();

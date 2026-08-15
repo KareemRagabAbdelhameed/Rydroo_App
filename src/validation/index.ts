@@ -2,6 +2,10 @@ import * as yup from "yup";
 export const registerSchema = yup.object({
     firstName : yup.string().required("validation.firstNameRequired"),
     lastName : yup.string().required("validation.lastNameRequired"),
+    phoneNumber: yup
+      .string()
+      .required("validation.phoneNumberRequired")
+      .matches(/^\+20\d{10}$/, "validation.phoneNumberInvalid"),
     email : yup.string().required("validation.emailRequired").matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/,"validation.emailInvalid"),
     password: yup.string()
     .required("validation.passwordRequired")
@@ -17,17 +21,14 @@ export const registerSchema = yup.object({
     .mixed<"user" | "driver">()
     .oneOf(["user", "driver"], "*Role is required")
     .required("validation.roleRequired"),
+    acceptTerms: yup.boolean().oneOf([true], "Must accept terms").required(),
+    acceptPrivacy: yup.boolean().oneOf([true], "Must accept privacy policy").required(),
 }).required();
 
     export const loginSchema = yup.object({
-        email : yup.string().required("loginValidation.email.required").matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/,"loginValidation.email.invalid"),
-        password: yup.string()
-        .required("loginValidation.password.required")
-        .min(8, "loginValidation.password.min")
-        .matches(/[a-z]/, "loginValidation.password.lowercase")
-        .matches(/[A-Z]/, "loginValidation.password.uppercase")
-        .matches(/\d/, "loginValidation.password.number")
-        .matches(/[@$!%*?&]/, "loginValidation.password.special"),
+        email: yup.string().required("البريد الالكتروني أو رقم الهاتف مطلوب"),
+        password: yup.string().required("كلمة المرور مطلوبة"),
+        role: yup.string().optional(),
     }).required();
 
 

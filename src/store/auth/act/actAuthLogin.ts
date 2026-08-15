@@ -4,6 +4,7 @@ import api from "../../../config/axiosConfig";
 type TFormData = {
     email : string,
     password : string,
+    role?: string,
 }
 
 

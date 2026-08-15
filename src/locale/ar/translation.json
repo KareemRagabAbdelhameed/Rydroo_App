@@ -61,6 +61,8 @@
         "validation": {
           "firstNameRequired": "*الاسم الأول مطلوب",
           "lastNameRequired": "*اسم العائلة مطلوب",
+          "phoneNumberRequired": "*رقم الهاتف مطلوب",
+          "phoneNumberInvalid": "*رقم الهاتف يجب أن يكون بصيغة +20 متبوعاً بـ 10 أرقام",
           "emailRequired": "*البريد الإلكتروني مطلوب",
           "emailInvalid": "البريد الإلكتروني غير صالح",
           "passwordRequired": "*كلمة المرور مطلوبة",
@@ -110,7 +112,11 @@
 
   "verifyDescription": {
     "text": "من فضلك أدخل رمز التحقق المكوّن من 6 أرقام المرسل إلى بريدك الإلكتروني",
-    "forVerification": "لتأكيد الحساب"
+    "forVerification": "لتأكيد الحساب",
+    "didNotReceive": "لم يصلك الرمز؟",
+    "resend": "إعادة الإرسال",
+    "resendIn": "أعد الإرسال بعد",
+    "otpResent": "تم إرسال رمز تحقق جديد إلى بريدك الإلكتروني"
   },
 
   "button": {
@@ -150,6 +156,40 @@
   },
   "authPopup": {
     "title": "للحجز يجب عليك تسجيل الدخول أولاً !"
+  },
+  "tripsPage": {
+    "unknownDriver": "سائق غير معروف",
+    "unknownVehicle": "مركبة غير محددة"
+  },
+  "driverRegister": {
+    "completeTitle": "يرجي اكمال البيانات التالية",
+    "nationalId": "الرقم القومي",
+    "nationalIdFront": "صورة البطاقة الشخصية (الوجه الأمامي)",
+    "nationalIdBack": "صورة البطاقة الشخصية (الوجه الخلفي)",
+    "licenseFront": "رخصة القيادة (الوجه الأمامي)",
+    "licenseBack": "رخصة القيادة (الوجه الخلفي)",
+    "routeLicenseFront": "رخصة خط السير (الوجه الأمامي) — اختياري",
+    "routeLicenseBack": "رخصة خط السير (الوجه الخلفي) — اختياري",
+    "uploadFrontHint": "اضغط هنا لرفع صورة الوجه الأمامي",
+    "uploadBackHint": "اضغط هنا لرفع صورة الوجه الخلفي",
+    "uploadFrontOptionalHint": "اضغط هنا لرفع الوجه الأمامي إن وجد",
+    "uploadBackOptionalHint": "اضغط هنا لرفع الوجه الخلفي إن وجد",
+    "carType": "نوع العربية",
+    "carColor": "لون العربية",
+    "carPlate": "رقم لوحة العربية (حروف + أرقام)",
+    "vehicleLicenseFront": "رخصة العربية (الوجه الأمامي)",
+    "vehicleLicenseBack": "رخصة العربية (الوجه الخلفي)",
+    "carImage": "صورة للعربية",
+    "carImageHint": "صورة توضح العربية بالكامل",
+    "next": "التالي",
+    "back": "رجوع",
+    "confirmSubmit": "تأكيد التسجيل",
+    "fieldRequired": "هذا الحقل مطلوب",
+    "loginRequired": "يجب تسجيل الدخول أولاً لإكمال بيانات السائق.",
+    "driverOnly": "هذه الصفحة مخصصة للسائقين فقط.",
+    "profileDataMissing": "بيانات الملف الشخصي مفقودة، يرجى إكمالها أولاً.",
+    "submitSuccess": "تم إرسال طلب التسجيل للمراجعة بنجاح.",
+    "submitError": "حدث خطأ أثناء إرسال بيانات السائق."
   }
 }
   

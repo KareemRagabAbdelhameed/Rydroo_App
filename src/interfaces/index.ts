@@ -1,14 +1,11 @@
-export interface RegisterFormValues {
-    firstName: string;
-    lastName: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-    role : "user" | "driver";
-  }
+import * as yup from "yup";
+import { registerSchema } from "../validation";
+
+export type RegisterFormValues = yup.InferType<typeof registerSchema>;
   export interface LoginFormValues {
     email : string,
-    password : string
+    password : string,
+    role?: "user" | "driver"
   }
   
   export interface IInputProps {

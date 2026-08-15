@@ -22,28 +22,33 @@ export function Trips() {
   }
   return (
     <div className="min-h-screen bg-[#F5EDE4] pb-20">
-      
-      {/* Trips Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {tripsData?.length===0 ? <p className='text-center text-maincolor text-lg font-semibold'>هذه الرحلة غير متوفرة الان </p>: tripsData!.map((trip, index) => (
-            <motion.div
-              key={trip._id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-            >
-              <TripCard key={trip._id} trip={trip} />
-            </motion.div>
-          ))}
+          {!tripsData || tripsData.length === 0 ? (
+            <p className="text-center text-maincolor text-lg font-semibold col-span-full">
+              هذه الرحلة غير متوفرة الان
+            </p>
+          ) : (
+            tripsData.map((trip, index) => (
+              <motion.div
+                key={trip._id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+              >
+                <TripCard trip={trip} />
+              </motion.div>
+            ))
+          )}
         </div>
-        
-        {/* Load More */}
-        <div className="mt-12 text-center">
-          <Button variant="outline" size="lg">
-            عرض المزيد من الرحلات
-          </Button>
-        </div>
+
+        {tripsData && tripsData.length > 0 && (
+          <div className="mt-12 text-center">
+            <Button variant="outline" size="lg">
+              عرض المزيد من الرحلات
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );
